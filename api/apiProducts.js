@@ -3,9 +3,10 @@ const fs  = require ("fs");
 class Api {
     constructor (file){
         this.file = file;
+        this.date = new Date().toLocaleTimeString();
     }
 
-    //* obtener todos
+//* Obtener todos
     async getAll(){
         try {
             const data = await fs.promises.readFile(this.file, "utf-8");
@@ -16,7 +17,7 @@ class Api {
         }
     }
 
-    //* obtener por ID
+//* Obtener por ID
     async getById(id){
         try {
             const data = await fs.promises.readFile(this.file, "utf-8");
@@ -32,16 +33,15 @@ class Api {
         }
     }
 
-    //* crear producto
+//* Crear producto
     async save(name, price, description, codigo, thumbnail, stock) {
         try {
             const data = await fs.promises.readFile(this.file, "utf-8");
             const products = JSON.parse(data);
             const id = products.length + 1;
-            const timestamp = new Date().toLocaleString();
             const newProduct = {
                 id:`${id}`,
-                timestamp,
+                timestamp: this.date,
                 name,
                 description,
                 codigo,
@@ -58,16 +58,15 @@ class Api {
         }
     }
 
-    //* actualizar por ID
+//* Actualizar por ID
     async updateById (id, name, price, description, codigo, thumbnail, stock){
         try {
             const data = await fs.promises.readFile(this.file, "utf-8");
             const products = JSON.parse(data);
             let product = products.find((product) => product.id === id);
-            const timestamp = new Date().toLocaleString();
             const newProduct = {
                 id,
-                timestamp,
+                timestamp: this.date,
                 name,
                 description,
                 codigo,
@@ -89,7 +88,7 @@ class Api {
         }
     }
 
-    //* borrar por ID
+//* Borrar por ID
     async deleteById(id){
         try {
             const data = await fs.promises.readFile(this.file, "utf-8");

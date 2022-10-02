@@ -41,26 +41,34 @@ router.post("/", async (req, res) =>{
     }
 })
 
-// //*Actualizar por ID
+//*Actualizar por ID
 router.put("/:id", async (req, res) =>{
-    const {id} = req.params;
-    const {name, price, description, codigo, thumbnail, stock} = req.body;
-    const found = await productos.updateById(id, name, price, description, codigo, thumbnail, stock);
-    if (found) {
-        res.send(`Se reemplazó el producto con ID ${id} por ${name}`)
-    } else {
-        res.send({error: "producto no encontrado"})
+    try {
+        const {id} = req.params;
+        const {name, price, description, codigo, thumbnail, stock} = req.body;
+        const found = await productos.updateById(id, name, price, description, codigo, thumbnail, stock);
+        if (found) {
+            res.send(`Se reemplazó el producto con ID ${id} por ${name}`)
+        } else {
+            res.send({error: "producto no encontrado"})
+        }
+    } catch (e){
+        res.send({error:true})
     }
 })
 
-// //*Borrar por ID
+//*Borrar por ID
 router.delete("/:id", async (req, res) =>{
-    const {id} = req.params;
-    let found = await productos.deleteById(id);
-    if (found) {
-        res.send(`Se eliminó el producto con ID ${id}`)
-    } else {
-        res.send({error: "producto no encontrado"})
+    try {
+        const {id} = req.params;
+        let found = await productos.deleteById(id);
+        if (found) {
+            res.send(`Se eliminó el producto con ID ${id}`)
+        } else {
+            res.send({error: "producto no encontrado"})
+        }
+    } catch (e){
+        res.send({error:true})
     }
 })
 
