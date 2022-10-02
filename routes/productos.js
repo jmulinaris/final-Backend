@@ -10,10 +10,13 @@ const authAdmin = (req, res, next) => {
         if (admin) {
         next();
         } else {
-        res
-            .status(401)
-            .json({ error: -1, description: "unauthorized permission" });
-    }
+            const route = req.originalUrl;
+            const method = req.method;
+            res.status(401).json({
+                error: -2,
+                descripcion: `Ruta ${route} método ${method} no autorizada`,
+    });
+}
 }
 
 //* Listar productos disponibles
