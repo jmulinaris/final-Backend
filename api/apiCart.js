@@ -118,7 +118,6 @@ class ApiCart {
                 }
                 return findProduct;
             }
-            return found;
         } catch (e) {
             console.log(e)
         }
