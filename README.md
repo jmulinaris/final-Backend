@@ -9,12 +9,14 @@
 2) Carrito: crear un carrito, vaciarlo y eliminarlo, listar los productos guardados, incorporar productos por su ID y eliminar por ID.
 - Se crea una variable booleana administrador que según su valor permite o no alcanzar ciertas rutas.
 - Se realiza persistencia de productos y carrito en el filesystem
+- Se crea variable de entorno
 
 
 ## Tecnologías
 ***
 Teconologías utilizadas en el proyecto
 * [express]: Version 4.18.1
+* [dotenv]:  Version 16.0.3
 
 ## Instalación
 ***
