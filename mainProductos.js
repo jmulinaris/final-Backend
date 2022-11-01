@@ -1,9 +1,9 @@
-const express = require("express");
-const {Router} = express;
+import { Router } from "express";
+import { ProductosDao } from "./daos/index.js";
+
 const router = Router();
 
-const Api = require("../api/apiProducts")
-const productos = new Api("./data/productos.json");
+const productos = ProductosDao;
 
 const authAdmin = (req, res, next) => {
     const admin = true;
@@ -16,16 +16,15 @@ const authAdmin = (req, res, next) => {
                 error: -2,
                 descripcion: `Ruta ${route} método ${method} no autorizada`,
     });
-}
-}
+}}
 
 //* Listar productos disponibles
 router.get("/", async (req, res) =>{
     try {
-        products = await productos.getAll();
-        return res.send(products)
+        const products = await productos.getAll();
+        res.send(products)
     } catch (e){
-        res.send({error:true})
+        res.send(e)
     }
 })
 
@@ -40,34 +39,36 @@ router.get("/:id", async (req,res) =>{
             res.send({error:"producto no encontrado"})
         }
     } catch (e){
-        res.send({error:true})
+        res.send({error: "producto no encontrado"})
     }
 })
 
 //*Agregar productos al listado
 router.post("/", authAdmin, async (req, res) =>{
+    const timestamp = new Date();
     try {
-        const {name, price, description, codigo, thumbnail, stock} = req.body;
-        const id = await productos.save(name, price, description, codigo, thumbnail, stock);
-        res.send(`Se agregó el producto: ${name} con ID ${id}`)
-    } catch {
+        const {name, price, description, code, thumbnail, stock} = req.body;
+        const id = await productos.save({name, price, description, code, thumbnail, stock, timestamp});
+        res.send(`Se agregó el producto: ${name}`)
+    } catch (e) {
         res.send({error:true})
     }
 })
 
 //*Actualizar por ID
 router.put("/:id", authAdmin, async (req, res) =>{
+    const timestamp = new Date();
     try {
         const {id} = req.params;
-        const {name, price, description, codigo, thumbnail, stock} = req.body;
-        const found = await productos.updateById(id, name, price, description, codigo, thumbnail, stock);
+        const {name, price, description, code, thumbnail, stock} = req.body;
+        const found = await productos.updateById({id, name, price, description, code, thumbnail, stock, timestamp});
         if (found) {
             res.send(`Se reemplazó el producto con ID ${id} por ${name}`)
         } else {
             res.send({error: "producto no encontrado"})
         }
     } catch (e){
-        res.send({error:true})
+        res.send({error:"producto no encontrado"})
     }
 })
 
@@ -86,5 +87,4 @@ router.delete("/:id", authAdmin, async (req, res) =>{
     }
 })
 
-
-module.exports = router;
+export default router;

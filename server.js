@@ -1,16 +1,15 @@
-const express = require("express");
-const dotenv = require ("dotenv");
-dotenv.config();
+import express from "express";
+import mainProductos from "./mainProductos.js"
+import mainCarritos from "./mainCarritos.js"
 
 const app = express();
-
 const PORT =  process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/productos", require("./routes/productos"));
-app.use("/api/carrito", require ("./routes/carritos"));
+app.use("/api/productos", mainProductos);
+app.use("/api/carrito", mainCarritos);
 
 app.get("*", (req, res) => {
     const route = req.originalUrl;
