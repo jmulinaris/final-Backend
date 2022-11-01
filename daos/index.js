@@ -19,22 +19,18 @@ switch (TIPO) {
     case "archivos":
         ProductosDao = new ProductosDaoArchivos();
         CarritosDao = new CarritosDaoArchivos();
-        console.log("Utilizando archivos")
     break;
     case "memoria":
         ProductosDao = new ProductosDaoMemoria();
         CarritosDao = new CarritosDaoMemoria();
-        console.log("Utilizando memoria")
     break;
     case "mongoDB":
         ProductosDao = new ProductosDaoMongoDB();
         CarritosDao = new CarritosDaoMongoDB();
-        console.log("Utilizando MongoDB")
     break;
     case "firebase":
         ProductosDao = new ProductosDaoFirebase();
         CarritosDao = new CarritosDaoFirebase();
-        console.log("Utilizando Firebase")
     break;
 }
 
