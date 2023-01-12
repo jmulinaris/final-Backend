@@ -70,7 +70,7 @@ const options = {
 
 const argv = process.argv.slice(2);
 const { MODO } = ParseArgs(argv, options)
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 const cpu = cpus().length;
 

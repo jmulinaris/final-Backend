@@ -13,7 +13,7 @@ const authMW = (req,res, next) =>{
     req.isAuthenticated() ? next () : res.send({error: true, msg: "Sin sesión"})
 };
 
-const port = process.env.PORT;
+const port = process.env.APP_PORT;
 const host = process.env.APP_HOST;
 
 //* Estrategia de registro
