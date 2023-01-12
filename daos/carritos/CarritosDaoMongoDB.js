@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import logger from "../../config/configLog4Js.js";
 import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
 const products = new Schema({
@@ -16,7 +17,9 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
     constructor(){
         super ("carritos", {
             timestamp: {type: Date, required:true},
-            products: [products],
+            id_user: {type: Object, required: true},
+            finalized: {type: Boolean, default: false},
+            products: [products]
         })
     }
 
@@ -34,7 +37,7 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
             }
             await this.collection.findByIdAndUpdate({_id:id}, {$push: {"products":newProduct}})
         } catch(e) {
-            console.log(e)
+            logger.error(`Error en DAO Carritos al guardar: ${e}`)
         }
     }
 
@@ -42,7 +45,17 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
         try {
             await this.collection.updateOne({_id:id}, {$pull:{"products":{_id:id_prod}}})
         } catch(e){
-            console.log(e)
+            logger.error(`Error en DAO Carritos al eliminar por ID: ${e}`)
+        }
+    }
+
+    async getUserCart(id_user) {
+        try {
+            const cart = await this.collection.find({id_user:id_user});
+            console.log(`El carrito encontrado es: ${cart}`)
+            return cart;
+        } catch (e) {
+            logger.error(`Error en DAO Carritos al buscar carrito: ${e}`)
         }
     }
 }

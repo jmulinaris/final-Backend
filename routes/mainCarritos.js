@@ -1,5 +1,5 @@
-import {Router} from "express";
-import { CarritosDao } from "./daos/index.js";
+import { Router } from "express";
+import { CarritosDao } from "../daos/index.js";
 
 const router = Router();
 
@@ -10,9 +10,10 @@ router.post ("/", async (req,res) =>{
     try {
         const products = [];
         const timestamp = new Date();
-        await carrito.save({timestamp,products});
+        const id_user = `new ObjectId("63beecb292926df5c3822736")`
+        await carrito.save({ timestamp, products, id_user });
         res.send(`Se creó el carrito`)
-    } catch {
+    } catch (e){
         res.send({error:true})
     }
 })
@@ -31,6 +32,17 @@ router.delete ("/:id", async (req, res) =>{
         res.send({error:true})
     }
 })
+
+//* Encontrar carrito del usuario
+// router.get("/:user", async (req,res) => {
+//     try {
+//         const id_user = req.params;
+//         let found = await carrito.getUserCart(id_user);
+//         console.log(found)
+//     } catch (e) {
+//         console.log(e);
+//     }
+// })
 
 //* Listar los productos de un carrito
 router.get("/:id/productos", async (req, res) => {

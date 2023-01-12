@@ -1,0 +1,2 @@
+
+[2023-01-12T18:03:10.923] [ERROR] default - Error en DAO Carritos al buscar carrito: CastError: Cast to string failed for value "{ user: '63beecb292926df5c3822736' }" (type Object) at path "id_user" for model "carritos"
