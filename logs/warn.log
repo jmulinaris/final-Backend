@@ -2,3 +2,4 @@
 [2023-01-12T19:27:35.651] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2023-01-12T19:35:03.224] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2023-01-12T19:49:20.043] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-12T20:59:14.014] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080

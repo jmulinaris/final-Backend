@@ -1,4 +1,4 @@
-import ContenedorMemoria from "../../contenedores/CotenedorMemoria.js";
+import ContenedorMemoria from "../../contenedores/contenedorMemoria.js";
 
 class CarritosDaoMemoria extends ContenedorMemoria {
     saveProducts(id,id_prod,timestamp,name,description,code,thumbnail,price,stock) {

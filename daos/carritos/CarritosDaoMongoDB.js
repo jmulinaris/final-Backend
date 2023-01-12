@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 import logger from "../../config/configLog4Js.js";
-import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
+import ContenedorMongoDB from "../../contenedores/contenedorMongoDB.js";
 
 const products = new Schema({
     timestamp: {type: Date, required:true},

@@ -2,15 +2,15 @@ import * as dotenv from "dotenv";
 dotenv.config();
 const TIPO = process.env.TIPO;
 
-import ProductosDaoArchivos from "./productos/ProductosDaoArchivos.js";
-import ProductosDaoFirebase from "./productos/ProductosDaoFirebase.js";
-import ProductosDaoMemoria from "./productos/ProductosDaoMemoria.js";
-import ProductosDaoMongoDB from "./productos/ProductosDaoMongoDB.js";
+import ProductosDaoArchivos from "./productos/productosDaoArchivos.js";
+import ProductosDaoFirebase from "./productos/productosDaoFirebase.js";
+import ProductosDaoMemoria from "./productos/productosDaoMemoria.js";
+import ProductosDaoMongoDB from "./productos/productosDaoMongoDB.js";
 
-import CarritosDaoArchivos from "./carritos/CarritosDaoArchivos.js";
-import CarritosDaoFirebase from "./carritos/CarritosDaoFirebase.js";
-import CarritosDaoMemoria from "./carritos/CarritosDaoMemoria.js";
-import CarritosDaoMongoDB from "./carritos/CarritosDaoMongoDB.js";
+import CarritosDaoArchivos from "./carritos/carritosDaoArchivos.js";
+import CarritosDaoFirebase from "./carritos/carritosDaoFirebase.js";
+import CarritosDaoMemoria from "./carritos/carritosDaoMemoria.js";
+import CarritosDaoMongoDB from "./carritos/carritosDaoMongoDB.js";
 
 let ProductosDao;
 let CarritosDao;

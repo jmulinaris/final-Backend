@@ -1,4 +1,4 @@
-import ContenedorMemoria from "../../contenedores/CotenedorMemoria.js";
+import ContenedorMemoria from "../../contenedores/contenedorMemoria.js";
 
 class ProductosDaoMemoria extends ContenedorMemoria {
     constructor (){
