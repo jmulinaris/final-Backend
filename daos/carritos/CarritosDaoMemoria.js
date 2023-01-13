@@ -1,6 +1,6 @@
-import ContenedorMemoria from "../../contenedores/contenedorMemoria.js";
+import contenedorMemoria from "../../contenedores/contenedorMemoria.js";
 
-class CarritosDaoMemoria extends ContenedorMemoria {
+class carritosDaoMemoria extends contenedorMemoria {
     saveProducts(id,id_prod,timestamp,name,description,code,thumbnail,price,stock) {
         let found = this.objects.find((car) => car.id === id);
         const index = this.objects.indexOf(found);
@@ -24,4 +24,4 @@ class CarritosDaoMemoria extends ContenedorMemoria {
     }
 }
 
-export default CarritosDaoMemoria;
+export default carritosDaoMemoria;

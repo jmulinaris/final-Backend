@@ -4,7 +4,7 @@ import logger from "../config/configLog4Js.js";
 
 await mongoose.connect(Config.mongodb.cnxStr);
 
-class ContenedorMongoDB {
+class contenedorMongoDB {
     constructor (collection, schema){
         this.collection = mongoose.model(collection, schema)
     }
@@ -74,4 +74,4 @@ class ContenedorMongoDB {
     }
 }
 
-export default ContenedorMongoDB;
+export default contenedorMongoDB;

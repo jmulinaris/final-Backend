@@ -1,7 +1,7 @@
-import ContenedorFirebase from "../../contenedores/ContenedorFirebase.js";
+import contenedorFirebase from "../../contenedores/ContenedorFirebase.js";
 import admin from "firebase-admin"
 
-class CarritosDaoFirebase extends ContenedorFirebase {
+class carritosDaoFirebase extends contenedorFirebase {
     constructor(){
         super("carritos");
     }
@@ -37,4 +37,4 @@ class CarritosDaoFirebase extends ContenedorFirebase {
     }
 }
 
-export default CarritosDaoFirebase;
+export default carritosDaoFirebase;

@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 import logger from "../../config/configLog4Js.js";
-import ContenedorMongoDB from "../../contenedores/contenedorMongoDB.js";
+import contenedorMongoDB from "../../contenedores/contenedorMongoDB.js";
 
 const products = new Schema({
     timestamp: {type: Date, required:true},
@@ -13,7 +13,7 @@ const products = new Schema({
     stock: {type: Number, required:true}
 })
 
-class CarritosDaoMongoDB extends ContenedorMongoDB {
+class carritosDaoMongoDB extends contenedorMongoDB {
     constructor(){
         super ("carritos", {
             timestamp: {type: Date, required:true},
@@ -60,4 +60,4 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
     }
 }
 
-export default CarritosDaoMongoDB;
+export default carritosDaoMongoDB;

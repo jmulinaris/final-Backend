@@ -1,4 +1,4 @@
-class ContenedorMemoria {
+class contenedorMemoria {
     constructor () {
         this.objects = [];
     }
@@ -47,4 +47,4 @@ class ContenedorMemoria {
     }
 }
 
-export default ContenedorMemoria;
+export default contenedorMemoria;
