@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { CarritosDao } from "../daos/index.js";
+import { carritosDao } from "../daos/index.js";
 
 const router = Router();
 
-const carrito = CarritosDao;
+const carrito = carritosDao;
 
 //* Crear carrito
 router.post ("/", async (req,res) =>{

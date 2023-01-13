@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { ProductosDao } from "../daos/index.js";
+import { productosDao } from "../daos/index.js";
 
 const router = Router();
 
-const productos = ProductosDao;
+const productos = productosDao;
 
 const authAdmin = (req, res, next) => {
     const admin = true;

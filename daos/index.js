@@ -12,28 +12,28 @@ import carritosDaoFirebase from "./carritos/carritosDaoFirebase.js";
 import carritosDaoMemoria from "./carritos/carritosDaoMemoria.js";
 import carritosDaoMongoDB from "./carritos/carritosDaoMongoDB.js";
 
-let ProductosDao;
-let CarritosDao;
+let productosDao;
+let carritosDao;
 
 switch (TIPO) {
     case "archivos":
-        ProductosDao = new productosDaoArchivos();
-        CarritosDao = new carritosDaoArchivos();
+        productosDao = new productosDaoArchivos();
+        carritosDao = new carritosDaoArchivos();
     break;
     case "memoria":
-        ProductosDao = new productosDaoMemoria();
-        CarritosDao = new carritosDaoMemoria();
+        productosDao = new productosDaoMemoria();
+        carritosDao = new carritosDaoMemoria();
     break;
     case "mongoDB":
-        ProductosDao = new productosDaoMongoDB();
-        CarritosDao = new carritosDaoMongoDB();
+        productosDao = new productosDaoMongoDB();
+        carritosDao = new carritosDaoMongoDB();
     break;
     case "firebase":
-        ProductosDao = new productosDaoFirebase();
-        CarritosDao = new carritosDaoFirebase();
+        productosDao = new productosDaoFirebase();
+        carritosDao = new carritosDaoFirebase();
     break;
 }
 
-export { ProductosDao };
+export { productosDao };
 
-export { CarritosDao };
+export { carritosDao };
