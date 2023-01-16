@@ -1,6 +1,6 @@
-import contenedorArchivo from "../../contenedores/contenedorArchivo.js";
+import ContenedorArchivo from "../../contenedores/contenedorArchivo.js";
 
-class productosDaoArchivo extends contenedorArchivo {
+class ProductosDaoArchivo extends ContenedorArchivo {
     
     constructor () {
         super("./data/productos.json")
@@ -9,4 +9,4 @@ class productosDaoArchivo extends contenedorArchivo {
 }
 
 
-export default productosDaoArchivo;
+export default ProductosDaoArchivo;

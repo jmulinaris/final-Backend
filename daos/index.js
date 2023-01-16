@@ -2,38 +2,38 @@ import * as dotenv from "dotenv";
 dotenv.config();
 const TIPO = process.env.TIPO;
 
-import productosDaoArchivos from "./productos/productosDaoArchivos.js";
-import productosDaoFirebase from "./productos/productosDaoFirebase.js";
-import productosDaoMemoria from "./productos/productosDaoMemoria.js";
-import productosDaoMongoDB from "./productos/productosDaoMongoDB.js";
+import ProductosDaoArchivos from "./productos/ProductosDaoArchivos.js";
+import ProductosDaoFirebase from "./productos/ProductosDaoFirebase.js";
+import ProductosDaoMemoria from "./productos/ProductosDaoMemoria.js";
+import ProductosDaoMongoDB from "./productos/ProductosDaoMongoDB.js";
 
-import carritosDaoArchivos from "./carritos/carritosDaoArchivos.js";
-import carritosDaoFirebase from "./carritos/carritosDaoFirebase.js";
-import carritosDaoMemoria from "./carritos/carritosDaoMemoria.js";
-import carritosDaoMongoDB from "./carritos/carritosDaoMongoDB.js";
+import CarritosDaoArchivos from "./carritos/CarritosDaoArchivos.js";
+import CarritosDaoFirebase from "./carritos/CarritosDaoFirebase.js";
+import CarritosDaoMemoria from "./carritos/CarritosDaoMemoria.js";
+import CarritosDaoMongoDB from "./carritos/CarritosDaoMongoDB.js";
 
-let productosDao;
-let carritosDao;
+let ProductosDao;
+let CarritosDao;
 
 switch (TIPO) {
     case "archivos":
-        productosDao = new productosDaoArchivos();
-        carritosDao = new carritosDaoArchivos();
+        ProductosDao = new ProductosDaoArchivos();
+        CarritosDao = new CarritosDaoArchivos();
     break;
     case "memoria":
-        productosDao = new productosDaoMemoria();
-        carritosDao = new carritosDaoMemoria();
+        ProductosDao = new ProductosDaoMemoria();
+        CarritosDao = new CarritosDaoMemoria();
     break;
     case "mongoDB":
-        productosDao = new productosDaoMongoDB();
-        carritosDao = new carritosDaoMongoDB();
+        ProductosDao = new ProductosDaoMongoDB();
+        CarritosDao = new CarritosDaoMongoDB();
     break;
     case "firebase":
-        productosDao = new productosDaoFirebase();
-        carritosDao = new carritosDaoFirebase();
+        ProductosDao = new ProductosDaoFirebase();
+        CarritosDao = new CarritosDaoFirebase();
     break;
 }
 
-export { productosDao };
+export { ProductosDao };
 
-export { carritosDao };
+export { CarritosDao };

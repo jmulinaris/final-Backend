@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 import logger from "../../config/configLog4Js.js";
-import contenedorMongoDB from "../../contenedores/contenedorMongoDB.js";
+import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
 const products = new Schema({
     timestamp: {type: Date, required:true},
@@ -13,7 +13,7 @@ const products = new Schema({
     stock: {type: Number, required:true}
 })
 
-class carritosDaoMongoDB extends contenedorMongoDB {
+class CarritosDaoMongoDB extends ContenedorMongoDB {
     constructor(){
         super ("carritos", {
             timestamp: {type: Date, required:true},
@@ -49,10 +49,9 @@ class carritosDaoMongoDB extends contenedorMongoDB {
         }
     }
 
-    async getUserCart(id_user) {
+    async getUserCart(id) {
         try {
-            const cart = await this.collection.find({id_user:id_user});
-            console.log(`El carrito encontrado es: ${cart}`)
+            const cart = await this.collection.findOne({ $and : [{ id_user: id }, { finalized: false }]});
             return cart;
         } catch (e) {
             logger.error(`Error en DAO Carritos al buscar carrito: ${e}`)
@@ -60,4 +59,4 @@ class carritosDaoMongoDB extends contenedorMongoDB {
     }
 }
 
-export default carritosDaoMongoDB;
+export default CarritosDaoMongoDB;

@@ -1,7 +1,7 @@
 import fs from "fs";
-import contenedorArchivo from "../../contenedores/contenedorArchivo.js";
+import ContenedorArchivo from "../../contenedores/contenedorArchivo.js";
 
-class carritosDaoArchivos extends contenedorArchivo {
+class CarritosDaoArchivos extends ContenedorArchivo {
     
     constructor () {
         super("./data/carritos.json")
@@ -60,4 +60,4 @@ async saveProducts(
 }
 
 
-export default carritosDaoArchivos;
+export default CarritosDaoArchivos;

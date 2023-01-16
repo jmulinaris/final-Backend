@@ -2,5 +2,87 @@
 [2023-01-12T19:27:35.651] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2023-01-12T19:35:03.224] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2023-01-12T19:49:20.043] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-01-12T20:59:14.014] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-01-13T09:17:18.318] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:30:43.950] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:36:38.171] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:39:35.976] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:49:28.664] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:55:24.857] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:56:45.822] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:57:33.569] [WARN] default - Failed request GET at /api/carrito/idCarrito/63beecb292926df5c3822736
+[2023-01-15T21:57:34.099] [WARN] default - Failed request GET at /api/styles/styles.css
+[2023-01-15T21:57:56.371] [WARN] default - Failed request GET at /api/carrito/idCarrito/63beecb292926df5c3822736
+[2023-01-15T21:57:56.524] [WARN] default - Failed request GET at /api/styles/styles.css
+[2023-01-15T21:58:19.824] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T21:58:28.872] [WARN] default - Failed request GET at /api/carrito/idCarrito/63beecb292926df5c3822736
+[2023-01-15T21:58:29.045] [WARN] default - Failed request GET at /api/styles/styles.css
+[2023-01-15T22:00:20.367] [WARN] default - Failed request GET at /api/productos
+[2023-01-15T22:01:25.866] [WARN] default - Failed request GET at /api/carrito/idCarrito/63beecb292926d22736
+[2023-01-15T22:01:26.116] [WARN] default - Failed request GET at /api/styles/styles.css
+[2023-01-15T22:01:41.917] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-15T22:01:56.054] [WARN] default - Failed request GET at /api/styles/styles.css
+[2023-01-16T12:11:39.043] [WARN] default - Failed request GET at /api/carrito/idCarrito/63beecb292926d22736
+[2023-01-16T12:11:39.980] [WARN] default - Failed request GET at /api/styles/styles.css
+[2023-01-16T12:11:52.176] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:13:14.870] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:13:28.175] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:13:37.158] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:14:08.937] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:14:11.052] [WARN] default - Failed request GET at /api/carrito/idCarrito/63beecb292926df5c3822736
+[2023-01-16T12:14:15.981] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:16:41.636] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:22:57.307] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:23:07.522] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:25:54.815] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:27:08.214] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:27:25.329] [WARN] default - Failed request GET at /js/carrito
+[2023-01-16T12:29:50.983] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:29:54.679] [WARN] default - Failed request GET at /api/productos
+[2023-01-16T12:31:09.565] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:37:20.066] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:51:36.231] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:53:41.219] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T12:54:21.301] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:03:01.478] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:04:38.929] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:07:28.931] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:08:30.410] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:08:48.037] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:09:28.627] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:09:32.743] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:10:15.155] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:10:30.416] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:11:04.828] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:11:46.308] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:11:51.362] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:14:32.213] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:14:36.844] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:15:32.850] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:15:43.921] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:16:36.120] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:16:42.458] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:17:07.203] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:18:18.060] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:18:50.734] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:19:02.635] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:19:58.196] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:20:29.979] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:22:04.193] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:23:14.572] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:24:03.225] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:24:26.155] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:24:42.377] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:24:56.313] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:25:46.525] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:25:50.386] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:26:12.960] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:26:18.322] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:26:49.769] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:26:55.093] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:28:07.001] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T13:28:16.748] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-01-16T13:29:08.101] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T16:06:34.217] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T16:06:59.887] [WARN] default - Failed request GET at /favicon.ico
+[2023-01-16T16:09:07.876] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-01-16T16:30:20.310] [WARN] default - Failed request GET at /favicon.ico
+[2023-01-16T16:41:01.965] [WARN] default - Failed request GET at /favicon.ico

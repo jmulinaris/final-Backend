@@ -1,7 +1,7 @@
 
-import contenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
+import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
-class productosDaoMongoDB extends contenedorMongoDB {
+class ProductosDaoMongoDB extends ContenedorMongoDB {
     constructor(){
         super ("productos", {
             timestamp: {type: Date, required:true},
@@ -15,4 +15,4 @@ class productosDaoMongoDB extends contenedorMongoDB {
     }
 }
 
-export default productosDaoMongoDB;
+export default ProductosDaoMongoDB;

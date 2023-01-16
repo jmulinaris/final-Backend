@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+    showProducts();
+})
+
 //* Traer productos de la BD
 const fetchData = async () => {
     try {
@@ -36,6 +40,4 @@ const showProducts = async (data) => {
     });
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    showProducts();
-})
+

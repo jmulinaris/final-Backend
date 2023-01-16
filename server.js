@@ -23,11 +23,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join("public")));
 
-app.use("/api/productos", mainProductos);
-app.use("/api/carrito", mainCarritos);
-
 app.set("views", "./views");
 app.set("view engine", "ejs");
+
+app.use("/api/productos", mainProductos);
+app.use("/api/carrito", mainCarritos);
 
 app.use(
     session({

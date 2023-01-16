@@ -1,16 +1,17 @@
 import { Router } from "express";
-import { carritosDao } from "../daos/index.js";
+import { CarritosDao } from "../daos/index.js";
 
 const router = Router();
 
-const carrito = carritosDao;
+const carrito = CarritosDao;
 
 //* Crear carrito
 router.post ("/", async (req,res) =>{
     try {
         const products = [];
         const timestamp = new Date();
-        const id_user = `new ObjectId("63beecb292926df5c3822736")`
+        //const id_user = req.user.username;
+        const id_user = `63beecb292926df5c3822736`;
         await carrito.save({ timestamp, products, id_user });
         res.send(`Se creó el carrito`)
     } catch (e){
@@ -32,17 +33,6 @@ router.delete ("/:id", async (req, res) =>{
         res.send({error:true})
     }
 })
-
-//* Encontrar carrito del usuario
-// router.get("/:user", async (req,res) => {
-//     try {
-//         const id_user = req.params;
-//         let found = await carrito.getUserCart(id_user);
-//         console.log(found)
-//     } catch (e) {
-//         console.log(e);
-//     }
-// })
 
 //* Listar los productos de un carrito
 router.get("/:id/productos", async (req, res) => {
@@ -98,6 +88,23 @@ router.delete("/:id/productos/:id_prod", async (req, res) =>{
         await carrito.deleteProdById(id, id_prod);
         res.send("Producto Eliminado");
     } catch (e) {
+        res.send({ error: true });
+    }
+});
+
+//* Encontrar carrito del usuario
+router.get("/idCarrito/:id_user", async (req,res) => {
+    try {
+        const { id_user } = req.params;
+        let found = await carrito.getUserCart(id_user);
+        if (found) {
+            const { _id } = found;
+            res.send(_id);
+        } else {
+            res.send({ _id:null });
+        }
+    } catch (e) {
+        console.log(e)
         res.send({ error: true });
     }
 });
