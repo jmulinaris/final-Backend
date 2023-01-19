@@ -6,6 +6,7 @@ import { Users } from "../config/configMongo.js";
 import path from "path";
 import logger from "../config/configLog4Js.js";
 import upload from "../controllers/multer.js";
+import { sendMail } from "../config/nodemailer.js";
 
 const homeRouter = new Router();
 
@@ -31,8 +32,16 @@ passport.use("signup", new localStrategy ({
         if (user) return done(null, false);
 
     Users.create({ username, password: hasPassword (password), name, address, age, phoneBd, imgUrl }, (err, user) => {
-            if (err) return done(err);
-            return done(null, user);
+            if (err){
+                return done(err);
+            } else {
+                sendMail(
+                    null,
+                    "Nuevo usuario registrado",
+                    `Usuario: ${name}`
+                )
+                return done(null, user);
+            }
         })
     })
 }))

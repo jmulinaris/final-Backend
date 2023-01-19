@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Config from "../config.js"
+import Config from "../config/configDB.js"
 import logger from "../config/configLog4Js.js";
 
 await mongoose.connect(Config.mongodb.cnxStr);

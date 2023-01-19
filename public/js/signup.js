@@ -9,6 +9,7 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 const form = document.querySelector("#form");
 const preview = document.querySelector("#preview");
 const file = document.querySelector("#myFile");
+const name = document.querySelector("#name");
 
 const renderImage = (formData) => {
     const file = formData.get("myFile");

@@ -10,11 +10,15 @@ router.post ("/", async (req,res) =>{
     try {
         const products = [];
         const timestamp = new Date();
+        //const id_user = Users.findOne({ username: username })
+        //console.log(id_user);
+        //const id_user = req.user._id;
         //const id_user = req.user.username;
-        const id_user = `63beecb292926df5c3822736`;
-        await carrito.save({ timestamp, products, id_user });
-        res.send(`Se creó el carrito`)
+        //const id_user = `63c08eae0895049fb0cde635`;
+        const newId = await carrito.save({ timestamp, products, id_user });
+        res.send(`Se creó el carrito ID ${newId}`)
     } catch (e){
+        console.log(e);
         res.send({error:true})
     }
 })

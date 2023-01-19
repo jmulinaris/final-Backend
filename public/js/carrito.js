@@ -1,5 +1,3 @@
-const contenedorCarrito = document.getElementById("carrito-contenedor");
-
 let cartId;
 
 document.addEventListener("DOMContentLoaded", (e)=>{
@@ -22,21 +20,27 @@ const fetchCart = async (user) => {
     try {
         const res = await fetch (`api/carrito/idCarrito/${user}`);
         const data = await res.json();
-        if (data._id === null) {
-            console.log("No hay carrito")
-            //! Función crear carrito
-        } else {
-            cartId = data;
-            console.log(cartId);
-            showCart(cartId);
-        }
+        cartId = data;
+        console.log(cartId);
+        showCart(cartId);
+        // if (data._id === null) {
+        //     contenedorCarrito.innerHTML = `
+            // <p class="carrito-vacio">El carrito está vacío</p>
+            // `
+        // } else {
+        //     cartId = data;
+        //     console.log(cartId);
+        //     showCart(cartId);
+        // }
     }  catch (e) {
         console.log(e);
     }
 };
 
+const contenedorCarrito = document.getElementById("carrito-contenedor");
+
 //* Mostrar el carrito
-const showCart = async (cartId) => {
+const showCart = async () => {
     try {
         const res = await fetch (`api/carrito/${cartId}/productos`);
         const products = await res.json();
@@ -52,14 +56,40 @@ const showCart = async (cartId) => {
                 div.innerHTML = `
                 <p class="product-cart">${product.name}</p>
                 <p class="product-cart">$${product.price}</p>
-                <button class="boton-delete" id=eliminar${product._id}>ELIMINAR</button>
+                <button class="boton-delete" id=eliminar${product._id}>Eliminar</button>
             `
             contenedorCarrito.appendChild(div);
+            const boton = document.getElementById(`eliminar${product._id}`)
+            const btnFinalizar = document.getElementById("btn-finalizar");
+            btnFinalizar.innerHTML = `
+            <button class="btn-finalizar">Finalizar compra</button>
+            `
+            boton.addEventListener("click", () => {
+                deleteProduct();
+                console.log("Producto eliminado")
+            })
+            btnFinalizar.addEventListener("click", () => {
+                console.log("Compra finalizada");
+            })
             })
         }
     } catch (e) {
         console.log(e)
     };
 };
+
+//* Eliminar producto
+const deleteProduct = async () => {
+    try {
+        const res = await fetch(`/api/carrito/${cartId}/productos/prod_id`, { method: "DELETE" })
+        const data = res.json();
+        console.log(data)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
+//* Finalizar compra
 
 
