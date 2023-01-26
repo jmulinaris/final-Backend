@@ -68,9 +68,7 @@ const showProducts = async (data) => {
             <p id="${product._id}"></p>
             <img src=${product.thumbnail}>
             <h5 class="name">${product.name}</h5>
-            <p class="date">${product.timestamp}</p>
             <p class="description">${product.description}</p>
-            <p class="code">Código: ${product.code}</p>
             <p>Stock: ${product.stock}</p>
             <p class="price">$${product.price}</p>
             <button class="boton-add" id="boton${product._id}">Agregar al carrito</button>

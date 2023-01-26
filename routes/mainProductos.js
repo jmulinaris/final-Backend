@@ -23,8 +23,9 @@ const authAdmin = (req, res, next) => {
 router.get("/", async (req, res) =>{
     try {
         const products = await productos.getAll();
-        res.send(products)
-    } catch (e){
+        const productsDto = products.map((product) => ProductDTO(product));
+        res.send(productsDto);
+        } catch (e){
         res.send(e)
     }
 })

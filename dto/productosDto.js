@@ -1,9 +1,11 @@
-const ProductDTO = ({ _id, name, price, thumbnail }) => {
+const ProductDTO = (product) => {
     return {
-        name,
-        price,
-        thumbnail,
-        id: _id,
+        _id: product.id,
+        thumbnail: product.thumbnail,
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        stock: product.stock
     };
 };
 
