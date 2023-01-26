@@ -1,25 +1,22 @@
 import { Router } from "express";
-import { CarritosDao } from "../daos/index.js";
+import logger from "../config/configLog4Js.js";
+import DAOFactory from "../daos/DAOFactory.js";
 
 const router = Router();
 
-const carrito = CarritosDao;
+const carrito = DAOFactory.getCarritosDAO();
 
 //* Crear carrito
-router.post ("/", async (req,res) =>{
+router.post ("/:idUser", async (req,res) =>{
     try {
+        const { idUser } = req.params;
+        const id_user = idUser;
         const products = [];
         const timestamp = new Date();
-        //const id_user = Users.findOne({ username: username })
-        //console.log(id_user);
-        //const id_user = req.user._id;
-        //const id_user = req.user.username;
-        //const id_user = `63c08eae0895049fb0cde635`;
         const newId = await carrito.save({ timestamp, products, id_user });
-        res.send(`Se creó el carrito ID ${newId}`)
+        res.send(newId)
     } catch (e){
-        console.log(e);
-        res.send({error:true})
+        logger.error(`Error al crear carrito: ${e}`)
     }
 })
 
@@ -29,7 +26,7 @@ router.delete ("/:id", async (req, res) =>{
         const {id} = req.params;
         let found = await carrito.deleteById(id)
         if (found) {
-            res.send(`Se eliminó el carrito con ID ${id}`)
+            res.send("Carrito eliminado")
         } else {
             res.send({error:"Carrito no encontrado"})
         }
@@ -102,8 +99,7 @@ router.get("/idCarrito/:id_user", async (req,res) => {
         const { id_user } = req.params;
         let found = await carrito.getUserCart(id_user);
         if (found) {
-            const { _id } = found;
-            res.send(_id);
+            res.send(found);
         } else {
             res.send({ _id:null });
         }

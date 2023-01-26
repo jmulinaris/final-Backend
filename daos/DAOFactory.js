@@ -19,21 +19,30 @@ switch (TIPO) {
     case "archivos":
         ProductosDao = new ProductosDaoArchivos();
         CarritosDao = new CarritosDaoArchivos();
-    break;
+        break;
     case "memoria":
         ProductosDao = new ProductosDaoMemoria();
         CarritosDao = new CarritosDaoMemoria();
-    break;
+        break;
     case "mongoDB":
         ProductosDao = new ProductosDaoMongoDB();
         CarritosDao = new CarritosDaoMongoDB();
-    break;
+        break;
     case "firebase":
         ProductosDao = new ProductosDaoFirebase();
         CarritosDao = new CarritosDaoFirebase();
-    break;
+        break;
 }
 
-export { ProductosDao };
+export default class DAOFactory {
+    static getCarritosDAO() {
+        return CarritosDao;
+    }
 
-export { CarritosDao };
+    static getProductosDAO(){
+        return ProductosDao;
+    }
+}
+
+DAOFactory.getCarritosDAO();
+DAOFactory.getProductosDAO();

@@ -17,12 +17,13 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
     constructor(){
         super ("carritos", {
             timestamp: {type: Date, required:true},
-            id_user: {type: Object, required: true},
+            id_user: {type: String, required: true},
             finalized: {type: Boolean, default: false},
             products: [products]
         })
     }
 
+    //* Agregar producto a un carrito
     async saveProducts(id,id_prod,timestamp,name,description,code,thumbnail,price,stock){
         try {
             const newProduct = {
@@ -41,6 +42,7 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
         }
     }
 
+    //* Eliminar producto de un carrito
     async deleteProdById(id, id_prod){
         try {
             await this.collection.updateOne({_id:id}, {$pull:{"products":{_id:id_prod}}})
@@ -49,12 +51,23 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
         }
     }
 
+    //* Buscar carrito no finalizado del usuario
     async getUserCart(id) {
         try {
             const cart = await this.collection.findOne({ $and : [{ id_user: id }, { finalized: false }]});
             return cart;
         } catch (e) {
             logger.error(`Error en DAO Carritos al buscar carrito: ${e}`)
+        }
+    }
+
+    //* Pasar carrito a finalizado
+    async updateCart (id) {
+        try {
+            await this.collection.updateOne({ $and: [{ id_user: id}, { finalized:false }]},
+            { $set: { finalized: true } })
+        } catch (e) {
+            logger.error(`Error en DAO Carritos al actualizar estado: ${e}`)
         }
     }
 }
