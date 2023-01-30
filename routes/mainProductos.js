@@ -51,7 +51,7 @@ router.post("/", authAdmin, async (req, res) =>{
     try {
         const {name, price, description, code, thumbnail, stock} = req.body;
         const id = await productos.save({name, price, description, code, thumbnail, stock, timestamp});
-        res.send(`Se agregó el producto: ${name}`)
+        res.send(`Se agregó el producto: ${name} con ID ${id}`)
     } catch (e) {
         res.send({error:true})
     }

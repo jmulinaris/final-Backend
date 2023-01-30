@@ -38,7 +38,11 @@ Teconologías utilizadas en el proyecto
 * [passport]: Version 0.6.0
 * [passport-local]: Version 1.0.0
 * [nodemailer]: Version 6.9.0
-* [twilio] Version 3.84.1
+* [twilio]: Version 3.84.1
+* [chai]: Version 4.3.7
+* [mocha]: Version 10.2.0
+* [supertest]: Version 6.3.3
+* [axios]: Version 1.2.6
 
 ## Instalación
 ***

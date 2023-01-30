@@ -1,19 +1,19 @@
 {
   "type": "module",
-  "name": "entregable",
+  "name": "proyecto-final-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon src/main.js -e ejs,html,js,json"
+    "test": "mocha"
   },
   "keywords": [],
-  "author": "",
+  "author": "Julieta Mulinaris",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "autocannon": "^7.10.0",
+    "axios": "^1.2.6",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
@@ -26,7 +26,7 @@
     "forever": "^0.14.2",
     "handlebars": "^4.7.7",
     "html": "^1.0.0",
-    "knex": "^0.95.15",
+    "knex": "^2.4.2",
     "log4js": "^6.7.1",
     "minimist": "^1.2.7",
     "mongodb": "^4.11.0",
@@ -40,6 +40,11 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.3",
-    "twilio": "^3.84.1"
+    "twilio": "^4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }
