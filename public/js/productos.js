@@ -3,31 +3,28 @@ let cartId;
 const contenedorProductos = document.getElementById("productos");
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchData();
-    fetchUser();
+    getData();
+    getUser();
 })
 
 //* Buscar el ID del usuario
-const fetchUser = async () => {
+const getUser = async () => {
     try {
         const res = await fetch ("/idUsuario");
         const data = await res.json();
-        console.log("usuario", data)
-        fetchCart(data);
+        getCart(data);
     } catch (e) {
         console.log(e);
     };
 };
 
 //* Traer el ID del carrito
-const fetchCart = async (user) => {
+const getCart = async (user) => {
     try {
         const res = await fetch (`api/carrito/idCarrito/${user}`);
         const data = await res.json();
-        console.log("carrito", data);
         if (data._id === null) {
-            fetchCreateCart();
-            console.log("entro acá")
+            createCart(user);
         } else {
             cartId = data._id;
         }
@@ -37,19 +34,16 @@ const fetchCart = async (user) => {
 };
 
 //* Crear carrito nuevo
-const fetchCreateCart = async (user) => {
+const createCart = async (user) => {
     try {
-        const res = await fetch(`/api/carrito/${user}`, { method: "POST" });
-        const data = await res.json();
-        cartId = data.newId;
-        console.log("creo este carro", cartId);
+        await fetch(`/api/carrito/${user}`, { method: "POST" });
     } catch (e) {
         console.log(e)
     }
 };
 
 //* Traer productos de la BD
-const fetchData = async () => {
+const getData = async () => {
     try {
         const res = await fetch("/api/productos");
         const data = await res.json();
@@ -65,7 +59,6 @@ const showProducts = async (data) => {
         const div = document.createElement("div");
         div.classList.add("card");
         div.innerHTML += `
-            <p id="${product._id}"></p>
             <img src=${product.thumbnail}>
             <h5 class="name">${product.name}</h5>
             <p class="description">${product.description}</p>
@@ -76,33 +69,19 @@ const showProducts = async (data) => {
         contenedorProductos.appendChild(div);
         const boton = document.getElementById(`boton${product._id}`)
         boton.addEventListener("click", () => {
-            //! Función agregar al carrito
-            fetchAddProduct();
+            addProduct(product);
         })
     });
 };
 
-const productos = await fetchData(cartId);
-//console.log(productos);
-
 //* Agregar producto al carrito
-const fetchAddProduct = async (prod) => {
-    console.log("Se agrega el producto al carrito")
+//! Falta sumar si hay duplicados
+const addProduct = async (product) => {
     try {
         const url = `api/carrito/${cartId}/productos`;
-        console.log(cartId)
-        const producto = {
-            id: cartId,
-            // id_prod: prod.querySelector(".boton-add").dataset.id,
-            timestamp: prod.querySelector(".date").textContent,
-            name: prod.querySelector(".name").textContent,
-            description: prod.querySelector(".description").textContent,
-            code: prod.querySelector(".code").textContent,
-            price: prod.querySelector(".price").textContent,
-        };
         await fetch (url, {
             method: "POST",
-            body: JSON.stringify(producto),
+            body: JSON.stringify(product),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -111,5 +90,26 @@ const fetchAddProduct = async (prod) => {
         console.log(e)
     }
 }
+
+//* Filtrar productos por categoría
+const filterProducts = async (category) => {
+    try {
+        const res = await fetch(`/api/productos/${category}`);
+        const data = await res.json();
+        showProducts(data);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const pizzas = document.getElementById("pizzas");
+pizzas.addEventListener("click", () => {
+    filterProducts("pizzas");
+});
+
+const pastas = document.getElementById("pastas");
+pastas.addEventListener("click", () => {
+    filterProducts("pastas");
+});
 
 

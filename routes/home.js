@@ -7,12 +7,9 @@ import path from "path";
 import logger from "../config/configLog4Js.js";
 import upload from "../controllers/multer.js";
 import { sendMail } from "../config/nodemailer.js";
+import authMW from "../middlewares/auth.js";
 
 const homeRouter = new Router();
-
-const authMW = (req,res, next) =>{
-    req.isAuthenticated() ? next () : res.send({error: true, msg: "Sin sesión"})
-};
 
 const port = process.env.APP_PORT;
 const host = process.env.APP_HOST;
@@ -32,16 +29,8 @@ passport.use("signup", new localStrategy ({
         if (user) return done(null, false);
 
     Users.create({ username, password: hasPassword (password), name, address, age, phoneBd, imgUrl }, (err, user) => {
-            if (err){
-                return done(err);
-            } else {
-                sendMail(
-                    null,
-                    "Nuevo usuario registrado",
-                    `Usuario: ${name}`
-                )
-                return done(null, user);
-            }
+            if (err) return done(err);
+            return done(null, user);
         })
     })
 }))

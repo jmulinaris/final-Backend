@@ -1,5 +1,5 @@
 import admin from "firebase-admin"
-import Config from "../config/configDB.js"
+import Config from "../config/configDB.js";
 
 admin.initializeApp({
     credential: admin.credential.cert(Config.firebase),

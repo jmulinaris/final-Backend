@@ -4,39 +4,38 @@ let userId;
 const contenedorCarrito = document.getElementById("carrito-contenedor");
 
 document.addEventListener("DOMContentLoaded", (e)=>{
-    fetchUser();
+    getUser();
 });
 
 //* Buscar el ID del usuario
-const fetchUser = async () => {
+const getUser = async () => {
     try {
         const res = await fetch ("/idUsuario");
         const data = await res.json();
-        fetchCart(data);
+        getCart(data);
     } catch (e) {
         console.log(e);
     };
 };
 
 //* Traer el ID del carrito
-const fetchCart = async (user) => {
+const getCart = async (user) => {
     try {
         const res = await fetch (`api/carrito/idCarrito/${user}`);
         const data = await res.json();
         cartId = data._id;
         userId = user;
-        fetchShowCart();
+        showCart();
     }  catch (e) {
         console.log(e);
     }
 };
 
 //* Mostrar el carrito
-const fetchShowCart = async () => {
+const showCart = async () => {
     try {
         const res = await fetch (`api/carrito/${cartId}/productos`);
         const products = await res.json();
-        console.log(products);
         if (products.length === 0) {
             contenedorCarrito.innerHTML = `
             <p class="carrito-vacio">El carrito está vacío</p>
@@ -46,7 +45,6 @@ const fetchShowCart = async () => {
                 const div = document.createElement("div");
                 div.classList.add("productoEnCarrito");
                 div.innerHTML = `
-                <p id="${product._id}"></p>
                 <p class="product-cart">${product.name}</p>
                 <p class="product-cart">$${product.price}</p>
                 <button class="boton-delete" id="eliminar${product._id}">Eliminar</button>
@@ -58,8 +56,7 @@ const fetchShowCart = async () => {
             <button class="btn-finalizar">Finalizar compra</button>
             `
             btnEliminar.addEventListener("click", () => {
-                fetchDeleteProduct();
-                console.log("Producto eliminado")
+                deleteProduct(product);
             })
             btnFinalizar.addEventListener("click", () => {
                 console.log("Compra finalizada");
@@ -72,17 +69,15 @@ const fetchShowCart = async () => {
 };
 
 //* Eliminar producto
-//! da undefined para traer el id
-const fetchDeleteProduct = async () => {
-    const id_prod = document.getElementById(`${product._id}`)
-    //const id_prod = prod.querySelector(".boton-delete").dataset.id;
+const deleteProduct = async (product) => {
+    const id_prod = product._id;
     try {
-        await fetch(`/api/carrito/${cartId}/productos/${id_prod}`, { method: "DELETE" })
-        fetchShowCart();
+        await fetch(`/api/carrito/${cartId}/productos/${id_prod}`, { method: "DELETE" });
+        showCart();
     } catch (e) {
         console.log(e)
     }
-}
+};
 
 
 //* Finalizar compra

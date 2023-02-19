@@ -1,4 +1,5 @@
 
+import logger from "../../config/configLog4Js.js";
 import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
 class ProductosDaoMongoDB extends ContenedorMongoDB {
@@ -7,11 +8,25 @@ class ProductosDaoMongoDB extends ContenedorMongoDB {
             timestamp: {type: Date, required:true},
             name: {type:String, required: true},
             description: {type:String, required:true},
+            category: {type: String, required:true},
             code: {type: Number, required:true},
             thumbnail: {type:String, required: true},
             price: {type:Number, required: true},
             stock: {type:Number, required: true},
         })
+    }
+
+    async getByCategory (category){
+        try {
+            const find = await this.collection.findOne({ category: category });
+            if (find){
+                return find;
+            } else {
+                return "La categoría no existe"
+            }
+        } catch (e) {
+            logger.error(`Error en DAO productos al filtrar: ${e}`)
+        }
     }
 }
 

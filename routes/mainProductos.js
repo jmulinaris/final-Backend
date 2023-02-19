@@ -1,10 +1,9 @@
 import { Router } from "express";
-import DAOFactory from "../daos/DAOFactory.js";
-import ProductDTO from "../dto/productosDto.js";
+import { ProductosDao } from "../daos/index.js";
 
 const router = Router();
 
-const productos = DAOFactory.getProductosDAO();
+const productos = ProductosDao;
 
 const authAdmin = (req, res, next) => {
     const admin = true;
@@ -23,9 +22,19 @@ const authAdmin = (req, res, next) => {
 router.get("/", async (req, res) =>{
     try {
         const products = await productos.getAll();
-        const productsDto = products.map((product) => ProductDTO(product));
-        res.send(productsDto);
-        } catch (e){
+        res.send(products)
+    } catch (e){
+        res.send(e)
+    }
+});
+
+//* Filtrar según categoría
+router.get("/:category", async (req, res) => {
+    const { category } = req.params;
+    try {
+        const products = await productos.getByCategory(category);
+        res.send(products);
+    } catch (e) {
         res.send(e)
     }
 })
