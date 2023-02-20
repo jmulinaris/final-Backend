@@ -14,7 +14,7 @@ const getUser = async () => {
         const data = await res.json();
         getCart(data);
     } catch (e) {
-        console.log(e);
+        console.log(`Error al buscar el ID del usuario: ${e}`)
     };
 };
 
@@ -29,7 +29,7 @@ const getCart = async (user) => {
             cartId = data._id;
         }
     }  catch (e) {
-        console.log(e);
+        console.log(`Error al buscar el ID del carrito: ${e}`)
     }
 };
 
@@ -38,18 +38,22 @@ const createCart = async (user) => {
     try {
         await fetch(`/api/carrito/${user}`, { method: "POST" });
     } catch (e) {
-        console.log(e)
+        console.log(`Error al crear el carrito: ${e}`)
     }
 };
 
 //* Traer productos de la BD
-const getData = async () => {
+const getData = async (category) => {
     try {
-        const res = await fetch("/api/productos");
-        const data = await res.json();
-        showProducts(data)
+        if (category) {
+            filterProducts(category);
+        } else {
+            const res = await fetch("/api/productos");
+            const data = await res.json();
+            showProducts(data);
+        }
     } catch (e) {
-        console.log(e)
+        console.log(`Error al mostrar los productos: ${e}`)
     }
 };
 
@@ -87,18 +91,18 @@ const addProduct = async (product) => {
             }
         })
     } catch (e) {
-        console.log(e)
+        console.log(`Error al agregar producto al carrito: ${e}`)
     }
 }
 
 //* Filtrar productos por categoría
 const filterProducts = async (category) => {
     try {
-        const res = await fetch(`/api/productos/${category}`);
+        const res = await fetch(`/api/productos/${category}`, { method: "POST" });
         const data = await res.json();
         showProducts(data);
     } catch (e) {
-        console.log(e)
+        console.log(`Error al filtrar productos: ${e}`)
     }
 }
 

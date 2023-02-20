@@ -14,7 +14,7 @@ const getUser = async () => {
         const data = await res.json();
         getCart(data);
     } catch (e) {
-        console.log(e);
+        console.log(`Error al buscar el usuario ${e}`);
     };
 };
 
@@ -27,7 +27,7 @@ const getCart = async (user) => {
         userId = user;
         showCart();
     }  catch (e) {
-        console.log(e);
+        console.log(`Error al buscar el carrito del usuario ${e}`);
     }
 };
 
@@ -42,11 +42,17 @@ const showCart = async () => {
             `
         } else {
             products.forEach (product => {
+                const calcularTotal= () => {
+                    let total = `${product.price}`*`${product.quantity}`;
+                    return total;
+                }
                 const div = document.createElement("div");
                 div.classList.add("productoEnCarrito");
                 div.innerHTML = `
                 <p class="product-cart">${product.name}</p>
                 <p class="product-cart">$${product.price}</p>
+                <p class="product-cart">${product.quantity}</p>
+                <p class="product-cart">Total: $${calcularTotal()}</p>
                 <button class="boton-delete" id="eliminar${product._id}">Eliminar</button>
             `
             contenedorCarrito.appendChild(div);
@@ -57,14 +63,14 @@ const showCart = async () => {
             `
             btnEliminar.addEventListener("click", () => {
                 deleteProduct(product);
-            })
+                })
             btnFinalizar.addEventListener("click", () => {
                 console.log("Compra finalizada");
-            })
+                })
             })
         }
     } catch (e) {
-        console.log(e)
+        console.log(`Error al mostrar los productos del carrito ${e}`);
     };
 };
 
@@ -75,10 +81,9 @@ const deleteProduct = async (product) => {
         await fetch(`/api/carrito/${cartId}/productos/${id_prod}`, { method: "DELETE" });
         showCart();
     } catch (e) {
-        console.log(e)
+        console.log(`Error al eliminar el producto del carrito ${e}`);
     }
 };
-
 
 //* Finalizar compra
 

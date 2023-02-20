@@ -8,7 +8,7 @@ export const DBConnect = (cb) =>{
     mongoose.connect (`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}.jwfbeyr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {useNewUrlParser: true},
         (err)=> {
             if (err) {
-                console.log(err)
+                throw new Error(err)
             }
             cb();
         })

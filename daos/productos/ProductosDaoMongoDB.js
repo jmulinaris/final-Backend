@@ -1,5 +1,4 @@
-
-import logger from "../../config/configLog4Js.js";
+import logger from "../../config/configLog4Js.js"
 import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
 class ProductosDaoMongoDB extends ContenedorMongoDB {
@@ -18,7 +17,7 @@ class ProductosDaoMongoDB extends ContenedorMongoDB {
 
     async getByCategory (category){
         try {
-            const find = await this.collection.findOne({ category: category });
+            const find = await this.collection.find({ category: category });
             if (find){
                 return find;
             } else {

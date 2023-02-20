@@ -29,7 +29,7 @@ router.get("/", async (req, res) =>{
 });
 
 //* Filtrar según categoría
-router.get("/:category", async (req, res) => {
+router.post("/:category", async (req, res) => {
     const { category } = req.params;
     try {
         const products = await productos.getByCategory(category);

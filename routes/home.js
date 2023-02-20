@@ -6,7 +6,6 @@ import { Users } from "../config/configMongo.js";
 import path from "path";
 import logger from "../config/configLog4Js.js";
 import upload from "../controllers/multer.js";
-import { sendMail } from "../config/nodemailer.js";
 import authMW from "../middlewares/auth.js";
 
 const homeRouter = new Router();
@@ -23,12 +22,12 @@ passport.use("signup", new localStrategy ({
     const { age } = req.body;
     const { phone } = req.body;
     const phoneBd = `+549${phone}`
-    const { filename } = req.file;
-    const imgUrl = `${host}:${port}/uploads/${filename}`;
+    //const { filename } = req.file;
+    //const imgUrl = `${host}:${port}/uploads/${filename}`;
     Users.findOne ({ username }, (err, user)=> {
         if (user) return done(null, false);
 
-    Users.create({ username, password: hasPassword (password), name, address, age, phoneBd, imgUrl }, (err, user) => {
+    Users.create({ username, password: hasPassword (password), name, address, age, phoneBd}, (err, user) => {
             if (err) return done(err);
             return done(null, user);
         })
@@ -66,8 +65,7 @@ passport.deserializeUser((id, done)=>{
 //* Rutas
 homeRouter.get("/", (req, res) => {
     if (req.isAuthenticated()){
-        const name = req.user.name;
-        res.render(path.join(process.cwd(), "/public/views/home.ejs"), { name: name });
+        res.redirect("/productos");
     } else {
         res.redirect("/login");
     }
@@ -75,7 +73,7 @@ homeRouter.get("/", (req, res) => {
 
 homeRouter.get("/login", (req, res) => {
     if (req.isAuthenticated()) {
-        res.redirect("/");
+        res.redirect("/productos");
     } else {
         res.render(path.join(process.cwd(), "/public/views/login.ejs"));
     };
@@ -137,7 +135,8 @@ homeRouter.get("/carrito", authMW, (req, res)=> {
 });
 
 homeRouter.get("/productos", authMW, (req, res)=> {
-    res.redirect("/")
+    const name = req.user.name;
+    res.render(path.join(process.cwd(), "/public/views/productos.ejs"), { name: name });
 });
 
 //* Rutas inexistentes

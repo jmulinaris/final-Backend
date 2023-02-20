@@ -1,6 +1,6 @@
 import { Router } from "express";
-import logger from "../config/configLog4Js.js";
 import { CarritosDao } from "../daos/index.js";
+//import authMW from "../middlewares/auth.js";
 
 const router = Router();
 
@@ -11,6 +11,10 @@ router.post ("/:idUser", async (req,res) =>{
     try {
         const { idUser } = req.params;
         const id_user = idUser;
+        // const user = req.user;
+        // console.log(user);
+        // const email = req.user.username;
+        // const address = req.user.address;
         const products = [];
         const timestamp = new Date();
         const id = await carrito.save({ timestamp, products, id_user });
@@ -63,6 +67,7 @@ router.post("/:id/productos", async (req, res) => {
             code,
             thumbnail,
             price,
+            quantity,
             stock,
         } = req.body;
         await carrito.saveProducts(
@@ -74,6 +79,7 @@ router.post("/:id/productos", async (req, res) => {
             code,
             thumbnail,
             price,
+            quantity,
             stock
         );
         return res.send("Producto Cargado");
@@ -93,7 +99,7 @@ router.delete("/:id/productos/:id_prod", async (req, res) =>{
     }
 });
 
-//* Encontrar carrito del usuario
+//* Buscar el carrito del usuario
 router.get("/idCarrito/:id_user", async (req,res) => {
     try {
         const { id_user } = req.params;
@@ -104,7 +110,6 @@ router.get("/idCarrito/:id_user", async (req,res) => {
             res.send({ _id: null });
         }
     } catch (e) {
-        console.log(e)
         res.send({ error: true });
     }
 });

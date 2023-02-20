@@ -1,5 +1,1 @@
-[2023-02-18T17:07:38.353] [ERROR] default - Error en DAO Carritos al eliminar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" because of "BSONTypeError"
-[2023-02-18T17:16:16.291] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
-[2023-02-18T20:53:22.155] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
-[2023-02-18T20:53:34.280] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
-[2023-02-18T21:04:08.510] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+
