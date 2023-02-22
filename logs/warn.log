@@ -1,0 +1,48 @@
+[2023-02-22T18:23:13.864] [WARN] default - Failed request GET at /api/productos
+[2023-02-22T18:24:53.746] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:26:14.381] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:28:25.122] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:29:08.446] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:30:12.922] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:31:16.709] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:31:25.631] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:33:11.679] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:33:25.818] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:34:38.495] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:34:41.773] [WARN] default - Failed request GET at /api/productos
+[2023-02-22T18:35:23.701] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:36:30.219] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:38:23.393] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:39:13.678] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:41:54.182] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:42:05.424] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:42:30.590] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:42:40.107] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:43:09.781] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:43:16.724] [WARN] default - Failed request GET at /chat
+[2023-02-22T18:44:11.928] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:44:21.672] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:45:31.071] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:45:36.591] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:46:38.964] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:46:44.581] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:48:37.194] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T18:58:19.244] [WARN] default - Failed request POST at /api/carrito/63f68ff11e251e30c80e78ad
+[2023-02-22T18:59:18.323] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:01:29.545] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:01:34.503] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-22T19:02:02.576] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-22T19:02:07.910] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:02:41.454] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:04:03.905] [WARN] default - Failed request POST at /api/carrito/63f6914eb2e7361a9cdc7c9d
+[2023-02-22T19:04:08.714] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:04:38.998] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:05:07.590] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-22T19:05:25.353] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:06:15.005] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:06:58.064] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:07:55.572] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-22T19:09:31.100] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T19:16:31.458] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T19:19:20.866] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-22T19:19:37.746] [WARN] default - Failed request GET at /favicon.ico

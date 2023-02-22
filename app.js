@@ -7,6 +7,7 @@ import passport from "passport";
 import * as dotenv from "dotenv";
 import mainProductos from "./routes/mainProductos.js"
 import mainCarritos from "./routes/mainCarritos.js"
+import chatRouter from "./routes/chat.js";
 
 dotenv.config();
 
@@ -19,8 +20,10 @@ app.use(express.static(path.join("public")));
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
-app.use("/api/productos", mainProductos);
-app.use("/api/carrito", mainCarritos);
+//* Rutas
+//app.use("/api/productos", mainProductos);
+//app.use("/api/carrito", mainCarritos);
+//app.use("api/chat", chatRouter);
 
 app.use(
     session({
@@ -42,7 +45,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //* Rutas
+app.use("/api/productos", mainProductos);
+app.use("/api/carrito", mainCarritos);
+app.use("/chat", chatRouter);
 app.use(homeRouter);
-
 
 export default app;

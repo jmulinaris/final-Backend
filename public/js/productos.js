@@ -36,9 +36,9 @@ const getCart = async (user) => {
 };
 
 //* Crear carrito nuevo
-const createCart = async (user) => {
+const createCart = async () => {
     try {
-        await fetch(`/api/carrito/${user}`, { method: "POST" });
+        await fetch(`/api/carrito`, { method: "POST" });
     } catch (e) {
         throw new Error(`Error al crear el carrito: ${e}`)
     }

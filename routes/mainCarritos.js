@@ -1,22 +1,19 @@
 import { Router } from "express";
 import { CarritosDao } from "../daos/index.js";
-//import authMW from "../middlewares/auth.js";
+import authMW from "../middlewares/auth.js";
 
 const router = Router();
 
 const carrito = CarritosDao;
 
 //* Crear carrito
-router.post ("/:idUser", async (req,res) =>{
+router.post ("/", authMW, async (req,res) =>{
     try {
-        const { idUser } = req.params;
-        const id_user = idUser;
-        // const user = req.user;
-        // console.log(user);
-        // const email = req.user.username;
+        const id_user = req.user._id;
+        const address = req.user.address;
         const products = [];
         const timestamp = new Date();
-        const id = await carrito.save({ timestamp, products, id_user });
+        const id = await carrito.save({ timestamp, products, id_user, address });
         res.send(id)
     } catch (e){
         res.send({ error:true })

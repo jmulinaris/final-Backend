@@ -143,10 +143,6 @@ homeRouter.get("/productos/:id", authMW, (req, res) => {
     res.render(path.join(process.cwd(), "/public/views/productDetail.ejs"));
 });
 
-//* Chat
-homeRouter.get("/chat", authMW, (req, res) => {
-    res.render(path.join(process.cwd(), "/public/views/chat.ejs"));
-})
 
 //* Rutas inexistentes
 homeRouter.all("*", (req, res, next) => {

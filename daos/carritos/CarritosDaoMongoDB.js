@@ -19,8 +19,7 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
         super ("carritos", {
             timestamp: {type: Date, required:true},
             id_user: {type: String, required: true},
-            //email: {type: String, required:true},
-            //address: {type: String, required: true},
+            address: {type: String, required: true},
             finalized: {type: Boolean, default: false},
             products: [products]
         })
