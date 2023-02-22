@@ -20,10 +20,6 @@ app.use(express.static(path.join("public")));
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
-//* Rutas
-//app.use("/api/productos", mainProductos);
-//app.use("/api/carrito", mainCarritos);
-//app.use("api/chat", chatRouter);
 
 app.use(
     session({

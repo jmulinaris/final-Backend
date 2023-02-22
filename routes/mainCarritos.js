@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { CarritosDao } from "../daos/index.js";
-import authMW from "../middlewares/auth.js";
+//import authMW from "../middlewares/auth.js";
 
 const router = Router();
 
 const carrito = CarritosDao;
 
 //* Crear carrito
-router.post ("/", authMW, async (req,res) =>{
+router.post ("/", async (req,res) =>{
     try {
         const id_user = req.user._id;
         const address = req.user.address;

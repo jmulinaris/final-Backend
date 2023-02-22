@@ -5,7 +5,6 @@ import bcrypt from "bcrypt";
 import { Users } from "../config/configMongo.js";
 import path from "path";
 import logger from "../config/log4JS.js";
-import upload from "../controllers/multer.js";
 import authMW from "../middlewares/auth.js";
 
 const homeRouter = new Router();
@@ -22,8 +21,6 @@ passport.use("signup", new localStrategy ({
     const { age } = req.body;
     const { phone } = req.body;
     const phoneBd = `+549${phone}`
-    //const { filename } = req.file;
-    //const imgUrl = `${host}:${port}/uploads/${filename}`;
     Users.findOne ({ username }, (err, user)=> {
         if (user) return done(null, false);
 
@@ -85,7 +82,7 @@ homeRouter.get("/signup", (req,res) => {
     });
 })
 
-homeRouter.post("/signup", upload.single("myFile"), passport.authenticate("signup", {failureRedirect:"/errorSignUp"}), (req, res, next) => {
+homeRouter.post("/signup", passport.authenticate("signup", {failureRedirect:"/errorSignUp"}), (req, res, next) => {
     res.render(path.join(process.cwd(), "/public/views/signup.ejs"), {
         okRegister: "¡Usuario registrado con éxito! Puede iniciar sesión",
     });

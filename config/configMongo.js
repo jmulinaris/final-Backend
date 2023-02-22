@@ -21,5 +21,4 @@ export const Users = mongoose.model("users", {
     phoneBd: String,
     username: String,
     password: String,
-    imgUrl: String,
 });
