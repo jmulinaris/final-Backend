@@ -1,3 +1,5 @@
+//! VER import showDetail from "./productDetail.js";
+
 let cartId;
 
 const contenedorProductos = document.getElementById("productos");
@@ -14,7 +16,7 @@ const getUser = async () => {
         const data = await res.json();
         getCart(data);
     } catch (e) {
-        console.log(`Error al buscar el ID del usuario: ${e}`)
+        throw new Error(`Error al buscar el ID del usuario: ${e}`)
     };
 };
 
@@ -29,7 +31,7 @@ const getCart = async (user) => {
             cartId = data._id;
         }
     }  catch (e) {
-        console.log(`Error al buscar el ID del carrito: ${e}`)
+        throw new Error(`Error al buscar el ID del carrito: ${e}`)
     }
 };
 
@@ -38,7 +40,7 @@ const createCart = async (user) => {
     try {
         await fetch(`/api/carrito/${user}`, { method: "POST" });
     } catch (e) {
-        console.log(`Error al crear el carrito: ${e}`)
+        throw new Error(`Error al crear el carrito: ${e}`)
     }
 };
 
@@ -53,17 +55,17 @@ const getData = async (category) => {
             showProducts(data);
         }
     } catch (e) {
-        console.log(`Error al mostrar los productos: ${e}`)
+        throw new Error(`Error al mostrar los productos: ${e}`)
     }
 };
 
 //* Renderizar productos
-const showProducts = async (data) => {
+export const showProducts = async (data) => {
     data.forEach(product => {
         const div = document.createElement("div");
         div.classList.add("card");
         div.innerHTML += `
-            <img src=${product.thumbnail}>
+            <a href="/productos/${product._id}"><img id="image${product._id}" src=${product.thumbnail}></a>
             <h5 class="name">${product.name}</h5>
             <p class="description">${product.description}</p>
             <p>Stock: ${product.stock}</p>
@@ -74,6 +76,11 @@ const showProducts = async (data) => {
         const boton = document.getElementById(`boton${product._id}`)
         boton.addEventListener("click", () => {
             addProduct(product);
+        });
+        //! Ver detalle del producto
+        const img = document.getElementById(`image${product._id}`)
+        img.addEventListener("click", () => {
+            //showDetail(product);
         })
     });
 };
@@ -83,6 +90,9 @@ const showProducts = async (data) => {
 const addProduct = async (product) => {
     try {
         const url = `api/carrito/${cartId}/productos`;
+        //! Asi me muestra el ID pero lo guarda con uno nuevo ¿?
+        // const id_prod = product._id
+        // console.log(id_prod);
         await fetch (url, {
             method: "POST",
             body: JSON.stringify(product),
@@ -91,7 +101,7 @@ const addProduct = async (product) => {
             }
         })
     } catch (e) {
-        console.log(`Error al agregar producto al carrito: ${e}`)
+        throw new Error(`Error al agregar producto al carrito: ${e}`)
     }
 }
 
@@ -102,7 +112,7 @@ const filterProducts = async (category) => {
         const data = await res.json();
         showProducts(data);
     } catch (e) {
-        console.log(`Error al filtrar productos: ${e}`)
+        throw new Error(`Error al filtrar productos: ${e}`)
     }
 }
 

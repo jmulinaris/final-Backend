@@ -14,7 +14,7 @@ const getUser = async () => {
         const data = await res.json();
         getCart(data);
     } catch (e) {
-        console.log(`Error al buscar el usuario ${e}`);
+        throw new Error (`Error al buscar el usuario ${e}`);
     };
 };
 
@@ -27,7 +27,7 @@ const getCart = async (user) => {
         userId = user;
         showCart();
     }  catch (e) {
-        console.log(`Error al buscar el carrito del usuario ${e}`);
+        throw new Error (`Error al buscar el carrito ${e}`);
     }
 };
 
@@ -70,7 +70,7 @@ const showCart = async () => {
             })
         }
     } catch (e) {
-        console.log(`Error al mostrar los productos del carrito ${e}`);
+        throw new Error(`Error al mostrar los productos del carrito ${e}`);
     };
 };
 
@@ -81,10 +81,11 @@ const deleteProduct = async (product) => {
         await fetch(`/api/carrito/${cartId}/productos/${id_prod}`, { method: "DELETE" });
         showCart();
     } catch (e) {
-        console.log(`Error al eliminar el producto del carrito ${e}`);
+        throw new Error(`Error al eliminar el producto del carrito ${e}`);
     }
 };
 
 //* Finalizar compra
+//! Enviar toda la info del carrito para crear una orden -> agregar dirección de entrega, y estado: generada por default
 
 

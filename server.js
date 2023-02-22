@@ -4,9 +4,17 @@ import ParseArgs from "minimist";
 import cluster from "cluster";
 import { cpus } from "os";
 import app from "./app.js";
-import logger from "./config/configLog4Js.js";
+import logger from "./config/log4JS.js";
+import { Server as Socket } from "socket.io";
+import socketMensajes from "./public/socket/mensajes.js";
 
 const httpServer = new HttpServer(app);
+const io = new Socket(httpServer);
+
+//* Socket
+io.on("connection", async (socket) => {
+    socketMensajes(socket, io.sockets);
+});
 
 //* Modo como parámetro
 const options = {
@@ -34,13 +42,13 @@ if (MODO == "CLUSTER") {
         }
 
         cluster.on("exit", (worker) => {
-        console.log(`Worker with PID ${worker.process.pid} DOWN`);
+        logger.info(`Worker with PID ${worker.process.pid} DOWN`);
         cluster.fork();
         })
     } else {
         DBConnect (()=> {
         const connectedServer = httpServer.listen(PORT, () => {
-        console.log(
+        logger.info(
             `Servidor http escuchando en el puerto ${PORT} en modo ${MODO} en el worker ${process.pid}`
             );
         });
@@ -52,7 +60,7 @@ if (MODO == "CLUSTER") {
     } else {
     DBConnect (()=> {
         const connectedServer = httpServer.listen(PORT, () => {
-        console.log(
+        logger.info(
             `Servidor http escuchando en el puerto ${PORT} en modo ${MODO}`
         );
         });
@@ -61,8 +69,3 @@ if (MODO == "CLUSTER") {
         );
     })
 }
-
-const server = app.listen(PORT, () => {
-	console.log(`Servidor escuchando en el puerto ${server.address().port}`);
-});
-server.on('error', (error) => console.log(`Error en servidor ${error}`));

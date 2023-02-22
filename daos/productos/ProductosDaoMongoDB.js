@@ -1,4 +1,4 @@
-import logger from "../../config/configLog4Js.js"
+import logger from "../../config/log4JS.js"
 import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
 class ProductosDaoMongoDB extends ContenedorMongoDB {

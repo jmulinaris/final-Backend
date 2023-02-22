@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+</head>
+
+<body class="container-home">
+    <%- include("template/navBar") %>
+
+        <div class="form-productos">
+            <h1 class="h1-home">Centro de Mensajes
+            </h1>
+            <div class="part-form-chat">
+                <input class="dato-prod" name="id_user" type="text" id="email" placeholder="Ingresá tu email">
+                <div id="errorEmail" class="text-error"></div>
+
+                <input class="dato-prod" type="text" id="name" placeholder="Ingresá tu nombre">
+                <div id="errorName" class="text-error"></div>
+
+                <input class="dato-prod" type="text" id="lastName" placeholder="Ingresá tu apellido">
+                <div id="errorLastName" class="text-error"></div>
+
+            </div>
+
+            <div id="mensajes"></div>
+
+            <form id="formPublicarMensaje">
+                <input class="dato-prod" id="mensaje" name="message" type="text" placeholder="Ingresá un mensaje...">
+                <div id="errorMsj" class="text-error"></div>
+                <button class="boton-msj" id="enviar" type="submit">Enviar </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/chat.js"></script>
+</body>
+</html>

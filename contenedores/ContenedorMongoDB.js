@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Config from "../config/configDB.js";
+import logger from "../config/log4JS.js"
 
 await mongoose.connect(Config.mongodb.cnxStr);
 
@@ -13,7 +14,7 @@ class ContenedorMongoDB {
             const objetos = await this.collection.find({});
             return objetos;
         } catch (e){
-            console.log(`Error al listar todos: ${e}`)
+            logger.error(`Error al listar todos: ${e}`)
         }
     };
 
@@ -26,7 +27,7 @@ class ContenedorMongoDB {
                 return "Elemento no encontrado"
             }
         } catch (e){
-            console.log(`Error al listar por ID: ${e}`)
+            logger.error(`Error al listar por ID: ${e}`)
         }
     }
 
@@ -39,7 +40,7 @@ class ContenedorMongoDB {
                 .sort({_id: -1})
             return id;
         } catch (e) {
-            console.log(`Error al guardar: ${e}`)
+            logger.error(`Error al guardar: ${e}`)
         }
     }
 
@@ -49,7 +50,7 @@ class ContenedorMongoDB {
             const find = await this.collection.replaceOne({_id:id}, elem)
             return find;
         } catch (e){
-            console.log(`Error al actualizar: ${e}`)
+            logger.error(`Error al actualizar: ${e}`)
         }
     }
 
@@ -63,7 +64,7 @@ class ContenedorMongoDB {
             }
             return find;
         } catch (e){
-            console.log(`Error al eliminar: ${e}`)
+            logger.error(`Error al eliminar: ${e}`)
         }
     }
 }

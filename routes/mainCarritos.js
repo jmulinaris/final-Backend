@@ -14,7 +14,6 @@ router.post ("/:idUser", async (req,res) =>{
         // const user = req.user;
         // console.log(user);
         // const email = req.user.username;
-        // const address = req.user.address;
         const products = [];
         const timestamp = new Date();
         const id = await carrito.save({ timestamp, products, id_user });

@@ -42,7 +42,7 @@ router.post("/:category", async (req, res) => {
 //*Buscar según ID
 router.get("/:id", async (req,res) =>{
     try {
-        const {id} = req.params;
+        const { id } = req.params;
         let found = await productos.getById(id);
         if (found){
         res.send(found)

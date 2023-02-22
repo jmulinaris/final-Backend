@@ -212,9 +212,7 @@ ul {
     justify-content: center;
     margin:1%;
     margin-left:10%;
-    border: solid rgb(212, 200, 200) 1px;
     width:80%;
-    border: solid rgb(202, 199, 199) 1px;
     border-radius: 10px;
 }
 
@@ -263,23 +261,22 @@ ul {
 
 .boton-msj{
     font-size: 1rem;
-    margin-left:40%;
-    margin-bottom:50%;
     color:white;
     border-radius: 10px;
     background-color: black;
-    height: 3rem; 
-    width:20%;
+    height: 40px; 
+    width:10%;
     cursor:pointer;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    margin-left:2%;
+    margin-top:0.5%;
 }
 
 #formPublicarMensaje{
     width:80%;
     height:2rem;
     margin-bottom:5%;
+    display:flex;
+    justify-content: center;
 }
 
 #formPublicarMensaje input{

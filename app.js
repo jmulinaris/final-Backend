@@ -5,7 +5,6 @@ import MongoStore from "connect-mongo";
 import homeRouter from "./routes/home.js";
 import passport from "passport";
 import * as dotenv from "dotenv";
-import logger from "./config/configLog4Js.js";
 import mainProductos from "./routes/mainProductos.js"
 import mainCarritos from "./routes/mainCarritos.js"
 
@@ -45,11 +44,5 @@ app.use(passport.session());
 //* Rutas
 app.use(homeRouter);
 
-//* Logger para rutas inexistentes
-app.all("*", (req, res, next) => {
-    logger.warn(`Failed request ${req.method} at ${req.url}`);
-    res.send({ error:true }).status(500);
-    next();
-});
 
 export default app;

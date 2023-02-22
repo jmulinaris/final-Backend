@@ -4,7 +4,7 @@ import { Strategy as localStrategy } from "passport-local";
 import bcrypt from "bcrypt";
 import { Users } from "../config/configMongo.js";
 import path from "path";
-import logger from "../config/configLog4Js.js";
+import logger from "../config/log4JS.js";
 import upload from "../controllers/multer.js";
 import authMW from "../middlewares/auth.js";
 
@@ -139,10 +139,20 @@ homeRouter.get("/productos", authMW, (req, res)=> {
     res.render(path.join(process.cwd(), "/public/views/productos.ejs"), { name: name });
 });
 
+homeRouter.get("/productos/:id", authMW, (req, res) => {
+    res.render(path.join(process.cwd(), "/public/views/productDetail.ejs"));
+});
+
+//* Chat
+homeRouter.get("/chat", authMW, (req, res) => {
+    res.render(path.join(process.cwd(), "/public/views/chat.ejs"));
+})
+
 //* Rutas inexistentes
-homeRouter.all("*", (req, res) => {
+homeRouter.all("*", (req, res, next) => {
     logger.warn(`Failed request ${req.method} at ${req.url}`);
     res.render(path.join(process.cwd(), "/public/views/notFound.ejs"));
+    next();
 });
 
 export default homeRouter;
