@@ -5,30 +5,22 @@ const phoneInput = window.intlTelInput(phoneInputField, {
         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
 });
 
-//* Envío del formulario de SIGNUP
-// const form = document.querySelector("#form");
-// const preview = document.querySelector("#preview");
-// const file = document.querySelector("#myFile");
-// const name = document.querySelector("#name");
+//* Validación de contraseñas
+const password = document.getElementById("password");
+const password2 = document.getElementById("password2");
+const form = document.getElementById("form");
+const error = document.getElementById("errorPassword");
 
-// const renderImage = (formData) => {
-//     const file = formData.get("myFile");
-//     const myFile = URL.createObjectURL(file);
-//     preview.setAttribute = ("src", myFile);
-// };
+const registro = document.getElementById("registrar")
 
-// file.addEventListener("change", () =>{
-//     const formData = new FormData(form);
-//     renderImage(formData);
-// });
+password2.addEventListener ("mouseout", () => {
+    if (password.value != password2.value) {
+        error.innerHTML = "Las contraseñas no coinciden, reingrese"
+        registro.classList.add("ocultar");
+    } else {
+        error.innerHTML = "Las contraseñas coinciden, puede registrarse"
+        registro.classList.remove("ocultar");
+    }
+});
 
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.currentTarget);
-//     fetch("/signup", {
-//         method: "POST",
-//         body: formData
-//     });
-//     form.reset();
-// });
 

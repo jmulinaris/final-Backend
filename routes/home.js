@@ -18,13 +18,12 @@ passport.use("signup", new localStrategy ({
 }, (req, username, password, done) =>{
     const { name } = req.body;
     const { address } = req.body;
-    const { age } = req.body;
     const { phone } = req.body;
     const phoneBd = `+549${phone}`
     Users.findOne ({ username }, (err, user)=> {
         if (user) return done(null, false);
 
-    Users.create({ username, password: hasPassword (password), name, address, age, phoneBd}, (err, user) => {
+    Users.create({ username, password: hasPassword (password), name, address, phoneBd}, (err, user) => {
             if (err) return done(err);
             return done(null, user);
         })
@@ -122,9 +121,7 @@ homeRouter.get("/miCuenta", authMW, (req, res)=> {
     const username = req.user.username;
     const phone = req.user.phoneBd;
     const address = req.user.address;
-    const age = req.user.age;
-    const imgUrl = req.user.imgUrl;
-    res.render(path.join(process.cwd(), "/public/views/miCuenta.ejs"), { name: name, email: username, phone: phone, address: address, age:age, imgUrl: imgUrl });
+    res.render(path.join(process.cwd(), "/public/views/miCuenta.ejs"), { name: name, email: username, phone: phone, address: address});
 });
 
 homeRouter.get("/carrito", authMW, (req, res)=> {

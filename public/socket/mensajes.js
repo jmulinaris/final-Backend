@@ -20,7 +20,7 @@ const socketMensajes = (socket, sockets) => {
 
     //*Post emisión
     sockets.emit("mensajes", messages);
-})
+    })
 }
 
 export default socketMensajes;

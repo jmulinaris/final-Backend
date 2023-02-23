@@ -476,3 +476,7 @@ ul {
     height: 30px;
     width: 10%;
 }
+
+.ocultar{
+    display: none;
+}

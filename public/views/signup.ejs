@@ -22,12 +22,8 @@
                     <input id="name" type="text" name="name" class="input-form" required>
                 </div>
                 <div class="form-login">
-                    <label class="label-form" for="email">Ingrese dirección</label>
+                    <label class="label-form" for="email">Ingrese domicilio</label>
                     <input id="address" type="text" name="address" class="input-form" required>
-                </div>
-                <div class="form-login">
-                    <label class="label-form" for="age">Ingrese edad</label>
-                    <input id="age" type="text" name="age" class="input-form" required>
                 </div>
                 <div class="form-login">
                     <label class="label-form" for="phone">Ingrese celular</label>
@@ -40,18 +36,16 @@
                     <input id="email" type="email" name="username" class="input-form" required>
                 </div>
                 <div class="form-login">
-                    <label class="label-form" for="file">Seleccione foto de perfil</label>
-                    <input class="input-form" type="file" name="myFile" id="myFile">
-                </div>
-                <div class="form-login">
-                    <img src="" id="preview" alt="">
-                </div>
-                <div class="form-login">
                     <label class="label-form" for="password">Ingrese contraseña</label>
                     <input id="password" type="password" name="password" class="input-form" required>
                 </div>
+                <div class="form-login">
+                    <label class="label-form" for="password">Repita su contraseña</label>
+                    <input id="password2" type="password" name="password2" class="input-form" required>
+                    <div id="errorPassword" class="text-error"></div>
+                </div>
                 <div class="botones-login">
-                    <button id="registrar" class="boton-form">Registrarse</button>
+                    <button id="registrar" class="boton-form ocultar">Registrarse</button>
                 </div>
             </form>
             <div class="botones-login">
