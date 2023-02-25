@@ -15,3 +15,6 @@
 [2023-02-23T18:31:38.625] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "juli.mulinaris@gmail.com" (type string) at path "_id" for model "mensajes"
 [2023-02-23T18:39:48.245] [ERROR] default - Error en DAO mensajes: CastError: Cast to string failed for value "{ email: 'juli.mulinaris@gmail.com' }" (type Object) at path "id_user" for model "mensajes"
 [2023-02-24T20:53:46.588] [ERROR] default - Error al guardar: ValidationError: id_user: Cast to string failed for value "{}" (type Object) at path "id_user"
+[2023-02-24T21:20:02.733] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-24T21:25:11.776] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-24T21:26:07.991] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.

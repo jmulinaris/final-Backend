@@ -90,3 +90,6 @@
 [2023-02-23T18:50:28.478] [WARN] default - Failed request GET at /api/chat
 [2023-02-23T19:49:06.399] [WARN] default - Failed request GET at /mailUsuario
 [2023-02-24T20:53:46.588] [ERROR] default - Error al guardar: ValidationError: id_user: Cast to string failed for value "{}" (type Object) at path "id_user"
+[2023-02-24T21:20:02.733] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-24T21:25:11.776] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.
+[2023-02-24T21:26:07.991] [ERROR] default - Error al guardar: ValidationError: id_user: Path `id_user` is required.

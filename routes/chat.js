@@ -7,15 +7,10 @@ const chatRouter = Router();
 
 //* Chat
 chatRouter.get("/", authMW, (req, res) => {
-    res.render(path.join(process.cwd(), "/public/views/chat.ejs"));
+    const email = req.user.username;
+    res.render(path.join(process.cwd(), "/public/views/chat.ejs"), { email: email });
 });
 
-//* Extraer mail de usuario
-chatRouter.get("/mailUsuario", (req, res) => {
-    const data = req.user.username;
-    const email = JSON.stringify(data)
-    res.send(email);
-})
 
 //* Filtrar según ID
 chatRouter.get("/:email", authMW, async (req, res) => {

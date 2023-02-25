@@ -2,41 +2,13 @@ const socket = io.connect();
 
 //*CHAT --Form Ingreso
 const email = document.getElementById("email");
-const name = document.getElementById("name");
-const lastName = document.getElementById("lastName");
 const mensaje = document.getElementById("mensaje");
 
 //* Enviar mensaje y validación de campos vacíos
 const formPublicarMensaje = document.getElementById("formPublicarMensaje");
 formPublicarMensaje.addEventListener("submit", (e) => {
     e.preventDefault();
-    const regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!email.value) {
-        email.focus();
-        return (errorEmail.textContent = "Complete este campo");
-    } else {
-        if (!regEmail.test(email.value)) {
-            email.value = "";
-            email.focus();
-            return (errorEmail.textContent = "Formato de Email no válido");
-        } else {
-            errorEmail.textContent = "";
-        }
-    }
-    if (!name.value) {
-        name.focus();
-        return (errorName.textContent = "Complete este campo")
-    } else {
-        name.focus();
-        errorName.textContent = "";
-    }
-    if (!lastName.value) {
-        lastName.focus();
-        return (errorLastName.textContent = "Complete este campo")
-    } else {
-        lastName.focus();
-        errorLastName.textContent = "";
-    }
+
     if (!mensaje.value){
         mensaje.focus();
         return (errorMsj.textContent = "Complete este campo")
@@ -46,8 +18,9 @@ formPublicarMensaje.addEventListener("submit", (e) => {
     }
     const message = {
         message: mensaje.value,
-        id_user: email.value,
+        id_user: email.textContent,
     };
+    console.log(message);
     mensaje.value="";
     mensaje.focus();
     socket.emit("newMensaje", message)
@@ -72,29 +45,18 @@ formPublicarMensaje.addEventListener("submit", (e) => {
     renderMessages(data)
 });
 
-
-//* Filtrar mensajes del usuario
-const getUser = async () => {
-    try {
-        const res = await fetch ("/chat/mailUsuario");
-        const email = await res.json();
-        getMessages(email)
-    } catch (e) {
-        throw new Error(`Error al buscar el mail del usuario: ${e}`)
-    };
-};
-
 const filtroMensajes = document.getElementById("filtroMensajes");
+const dataEmail = email.textContent;
 
-const getMessages = async (email) => {
+const getMessages = async (dataEmail) => {
     try {
-        const res = await fetch(`/chat/${email}`);
+        const res = await fetch(`/chat/${dataEmail}`);
         const data = await res.json()
         data.forEach(msg => {
             const div = document.createElement("div");
             div.classList.add("misMensajes");
             div.innerHTML += `
-                <p class="msj">${msg.message}</p>
+                <p class="dato-prod">${msg.message}</p>
                 `
             filtroMensajes.appendChild(div);
         });
@@ -106,5 +68,5 @@ const getMessages = async (email) => {
 const btnFiltro = document.getElementById("btn-filtro");
 
 btnFiltro.addEventListener("click", () => {
-    getUser();
+    getMessages(dataEmail);
 });

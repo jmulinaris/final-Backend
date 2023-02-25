@@ -8,7 +8,6 @@
     <title>Chat</title>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
 </head>
 
 <body class="container-home">
@@ -18,14 +17,8 @@
             <h1 class="h1-home">Centro de Mensajes
             </h1>
             <div class="part-form-chat">
-                <input class="dato-prod" name="id_user" type="text" id="email" placeholder="Ingresá tu email">
-                <div id="errorEmail" class="text-error"></div>
 
-                <input class="dato-prod" type="text" id="name" placeholder="Ingresá tu nombre">
-                <div id="errorName" class="text-error"></div>
-
-                <input class="dato-prod" type="text" id="lastName" placeholder="Ingresá tu apellido">
-                <div id="errorLastName" class="text-error"></div>
+                <div class="ocultar" id="email"><%= email %></div>
 
             </div>
 
