@@ -56,7 +56,7 @@ const getMessages = async (dataEmail) => {
             const div = document.createElement("div");
             div.classList.add("misMensajes");
             div.innerHTML += `
-                <p class="dato-prod">${msg.message}</p>
+                <p class="msj">${msg.message}</p>
                 `
             filtroMensajes.appendChild(div);
         });

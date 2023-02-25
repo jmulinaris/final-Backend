@@ -64,6 +64,7 @@ router.post("/:id/productos", async (req, res) => {
             thumbnail,
             price,
             quantity,
+            category,
             stock,
         } = req.body;
         await carrito.saveProducts(
@@ -76,6 +77,7 @@ router.post("/:id/productos", async (req, res) => {
             thumbnail,
             price,
             quantity,
+            category,
             stock
         );
         return res.send("Producto Cargado");

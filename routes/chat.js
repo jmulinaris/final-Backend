@@ -23,4 +23,5 @@ chatRouter.get("/:email", authMW, async (req, res) => {
     }
 });
 
+
 export default chatRouter;
