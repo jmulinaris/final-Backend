@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ProductosDao } from "../daos/index.js";
+import { ProductosDao } from "../daos/DAOFactory.js";
 
 const router = Router();
 
@@ -86,7 +86,7 @@ router.put("/:id", authAdmin, async (req, res) =>{
 //*Borrar por ID
 router.delete("/:id", authAdmin, async (req, res) =>{
     try {
-        const {id} = req.params;
+        const { id } = req.params;
         let found = await productos.deleteById(id);
         if (found) {
             res.send(`Se eliminó el producto con ID ${id}`)

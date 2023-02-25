@@ -83,3 +83,10 @@
 [2023-02-22T20:17:31.859] [WARN] default - Failed request GET at /favicon.ico
 [2023-02-22T20:19:02.110] [WARN] default - Failed request GET at /favicon.ico
 [2023-02-22T20:19:09.680] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-23T18:30:39.220] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "julieta@gmail.com" (type string) at path "_id" for model "mensajes"
+[2023-02-23T18:31:38.625] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "juli.mulinaris@gmail.com" (type string) at path "_id" for model "mensajes"
+[2023-02-23T18:39:48.245] [ERROR] default - Error en DAO mensajes: CastError: Cast to string failed for value "{ email: 'juli.mulinaris@gmail.com' }" (type Object) at path "id_user" for model "mensajes"
+[2023-02-23T18:50:23.911] [WARN] default - Failed request POST at /api/chat
+[2023-02-23T18:50:28.478] [WARN] default - Failed request GET at /api/chat
+[2023-02-23T19:49:06.399] [WARN] default - Failed request GET at /mailUsuario
+[2023-02-24T20:53:46.588] [ERROR] default - Error al guardar: ValidationError: id_user: Cast to string failed for value "{}" (type Object) at path "id_user"

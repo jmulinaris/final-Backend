@@ -11,3 +11,7 @@
 [2023-02-22T19:06:15.005] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
 [2023-02-22T19:06:58.064] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
 [2023-02-22T19:07:55.572] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-23T18:30:39.220] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "julieta@gmail.com" (type string) at path "_id" for model "mensajes"
+[2023-02-23T18:31:38.625] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "juli.mulinaris@gmail.com" (type string) at path "_id" for model "mensajes"
+[2023-02-23T18:39:48.245] [ERROR] default - Error en DAO mensajes: CastError: Cast to string failed for value "{ email: 'juli.mulinaris@gmail.com' }" (type Object) at path "id_user" for model "mensajes"
+[2023-02-24T20:53:46.588] [ERROR] default - Error al guardar: ValidationError: id_user: Cast to string failed for value "{}" (type Object) at path "id_user"

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { CarritosDao } from "../daos/index.js";
+import { CarritosDao } from "../daos/DAOFactory.js";
 //import authMW from "../middlewares/auth.js";
 
 const router = Router();
@@ -16,7 +16,7 @@ router.post ("/", async (req,res) =>{
         const id = await carrito.save({ timestamp, products, id_user, address });
         res.send(id)
     } catch (e){
-        res.send({ error:true })
+        res.send({ error: true })
     }
 })
 

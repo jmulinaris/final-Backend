@@ -1,4 +1,4 @@
-import { MensajesDao } from "../../daos/index.js";
+import { MensajesDao } from "../../daos/DAOFactory.js";
 
 let messages = await MensajesDao.getAll();
 

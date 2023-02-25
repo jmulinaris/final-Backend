@@ -73,3 +73,38 @@ formPublicarMensaje.addEventListener("submit", (e) => {
 });
 
 
+//* Filtrar mensajes del usuario
+const getUser = async () => {
+    try {
+        const res = await fetch ("/chat/mailUsuario");
+        const email = await res.json();
+        getMessages(email)
+    } catch (e) {
+        throw new Error(`Error al buscar el mail del usuario: ${e}`)
+    };
+};
+
+const filtroMensajes = document.getElementById("filtroMensajes");
+
+const getMessages = async (email) => {
+    try {
+        const res = await fetch(`/chat/${email}`);
+        const data = await res.json()
+        data.forEach(msg => {
+            const div = document.createElement("div");
+            div.classList.add("misMensajes");
+            div.innerHTML += `
+                <p class="msj">${msg.message}</p>
+                `
+            filtroMensajes.appendChild(div);
+        });
+    } catch (e) {
+        throw new Error(`Error al filtrar los mensajes: ${e}`)
+    }
+}
+
+const btnFiltro = document.getElementById("btn-filtro");
+
+btnFiltro.addEventListener("click", () => {
+    getUser();
+});

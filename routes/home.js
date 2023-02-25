@@ -115,6 +115,7 @@ homeRouter.get("/idUsuario", (req, res) => {
     res.send(idUsuario);
 })
 
+
 //* Rutas del menú
 homeRouter.get("/miCuenta", authMW, (req, res)=> {
     const name = req.user.name;
