@@ -45,6 +45,8 @@ formPublicarMensaje.addEventListener("submit", (e) => {
     renderMessages(data)
 });
 
+
+//* Filtro de mensajes propios
 const filtroMensajes = document.getElementById("filtroMensajes");
 const dataEmail = email.textContent;
 

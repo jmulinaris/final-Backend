@@ -9,9 +9,6 @@ import authMW from "../middlewares/auth.js";
 
 const homeRouter = new Router();
 
-const port = process.env.APP_PORT;
-const host = process.env.APP_HOST;
-
 //* Estrategia de registro
 passport.use("signup", new localStrategy ({
     passReqToCallback: true
@@ -19,11 +16,10 @@ passport.use("signup", new localStrategy ({
     const { name } = req.body;
     const { address } = req.body;
     const { phone } = req.body;
-    const phoneBd = `+549${phone}`
     Users.findOne ({ username }, (err, user)=> {
         if (user) return done(null, false);
 
-    Users.create({ username, password: hasPassword (password), name, address, phoneBd}, (err, user) => {
+    Users.create({ username, password: hasPassword (password), name, address, phone}, (err, user) => {
             if (err) return done(err);
             return done(null, user);
         })
@@ -115,12 +111,11 @@ homeRouter.get("/idUsuario", (req, res) => {
     res.send(idUsuario);
 })
 
-
 //* Rutas del menú
 homeRouter.get("/miCuenta", authMW, (req, res)=> {
     const name = req.user.name;
     const username = req.user.username;
-    const phone = req.user.phoneBd;
+    const phone = req.user.phone;
     const address = req.user.address;
     res.render(path.join(process.cwd(), "/public/views/miCuenta.ejs"), { name: name, email: username, phone: phone, address: address});
 });

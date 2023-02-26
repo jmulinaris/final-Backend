@@ -338,10 +338,6 @@ ul {
 }
 
 /*PRODUCTOS */
-#productos{
-    width:80%;
-    display: flex;
-}
 
 .titulo-productos{
     background-color: black;
@@ -351,7 +347,8 @@ ul {
     border-radius: 10px;
 }
 
-#productos{
+#productos, #productosFiltrados{
+    width:80%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
 }
@@ -435,6 +432,13 @@ ul {
     padding:0.5%;
     cursor:pointer;
     font-size: 1rem;
+}
+
+#total-carrito{
+    width:80%;
+    margin-top:5%;
+    font-size:1.3rem;
+    text-align: center;
 }
 
 .btn-finalizar{

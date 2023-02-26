@@ -1,13 +1,16 @@
 const detalleProducto = document.getElementById("productDetail");
 
 document.addEventListener("DOMContentLoaded", () => {
-    showDetail();
+    showDetail(product);
 })
 
+const id = product._id;
+
+
 //* Mostrar el detalle de cada producto
-const showDetail = async (product) => {
+const showDetail = async (id) => {
     try {
-        const res = await fetch(`/api/productos/${product._id}`);
+        const res = await fetch(`/api/productos/${id}`);
         const data = await res.json();
         console.log(data)
     } catch (e) {

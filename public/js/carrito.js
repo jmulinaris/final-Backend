@@ -3,6 +3,7 @@ let userId;
 
 const contenedorCarrito = document.getElementById("carrito-contenedor");
 
+
 document.addEventListener("DOMContentLoaded", (e)=>{
     getUser();
 });
@@ -68,6 +69,12 @@ const showCart = async () => {
                 console.log("Compra finalizada");
                 })
             })
+            const calcularTotalOrden = () => {
+                const total = products.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0)
+                return total;
+            }
+            const totalCarrito = document.getElementById("total-carrito")
+            totalCarrito.innerHTML = `Total del carrito: $${calcularTotalOrden()}`
         }
     } catch (e) {
         throw new Error(`Error al mostrar los productos del carrito ${e}`);
@@ -79,7 +86,7 @@ const deleteProduct = async (product) => {
     const id_prod = product._id;
     try {
         await fetch(`/api/carrito/${cartId}/productos/${id_prod}`, { method: "DELETE" });
-        showCart();
+        location.reload();
     } catch (e) {
         throw new Error(`Error al eliminar el producto del carrito ${e}`);
     }
