@@ -112,5 +112,16 @@ router.get("/idCarrito/:id_user", async (req,res) => {
     }
 });
 
+//* Actualizar carrito a finalizado para crear la orden
+router.put("/:id_user", async (req, res) => {
+    try {
+        const { id_user } = req.params;
+        await carrito.updateCart(id_user);
+        res.send("Se actualizó el carrito a finalizado")
+    } catch (e) {
+        res.send({ error: true });
+    }
+})
+
 
 export default router;

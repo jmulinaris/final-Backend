@@ -83,6 +83,16 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
             logger.error(`Error en DAO Carritos al buscar carrito: ${e}`)
         }
     }
+
+    //* Pasar carrito a finalizado
+    async updateCart (id_user) {
+        try {
+            await this.collection.updateOne({ $and: [{ id_user: id_user}, { finalized:false }]},
+            { $set: { finalized: true } })
+        } catch (e) {
+            logger.error(`Error en DAO Carritos al actualizar estado: ${e}`)
+        }
+    }
 }
 
 export default CarritosDaoMongoDB;

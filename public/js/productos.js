@@ -1,7 +1,9 @@
+//import showDetail from "./productDetail.js";
+
 let cartId;
 
 const contenedorProductos = document.getElementById("productos");
-const productosFiltrados = document.getElementById("productosFiltrados")
+const productosFiltrados = document.getElementById("productosFiltrados");
 
 document.addEventListener("DOMContentLoaded", () => {
     getData();
@@ -75,10 +77,23 @@ export const showProducts = async (data) => {
         //! Ver detalle del producto
         const img = document.getElementById(`image${product._id}`)
         img.addEventListener("click", () => {
-            getProdById(product);
+            const id = product._id;
+            console.log(id)
+            //getProdById(id);
         })
     });
 };
+
+//* Mostrar el detalle de cada producto
+// const getProdById = async (id) => {
+//     try {
+//         const res = await fetch(`/api/productos/${id}`);
+//         const data = await res.json();
+//         showDetail(JSON.stringify(data));
+//     } catch (e) {
+//         throw new Error(`Error al buscar por ID: ${e}`)
+//     }
+// };
 
 //* Agregar producto al carrito
 const addProduct = async (product) => {
@@ -96,22 +111,10 @@ const addProduct = async (product) => {
     }
 }
 
-//* Buscar producto por su ID
-const getProdById = async (product) => {
-    const id = product._id;
-    try {
-        const res = await fetch(`/api/productos/${id}`);
-        const data = await res.json();
-        console.log(data)
-    } catch (e) {
-        throw new Error(`Error al buscar por ID: ${e}`)
-    }
-}
-
 //* Filtrar productos por categoría
 const filterProducts = async (category) => {
     try {
-        const res = await fetch(`/api/productos/${category}`, { method: "POST" });
+        const res = await fetch(`api/productos/${category}`, { method: "POST" });
         const data = await res.json();
         contenedorProductos.remove();
         showFilterProducts(data);
@@ -140,10 +143,10 @@ const showFilterProducts = async (data) => {
         //! Ver detalle del producto
         const img = document.getElementById(`image${product._id}`)
         img.addEventListener("click", () => {
-            getProdById(product);
+            //getProdById(product);
         })
     });
-}
+};
 
 const pizzas = document.getElementById("pizzas");
 pizzas.addEventListener("click", () => {

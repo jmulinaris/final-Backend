@@ -45,7 +45,7 @@ router.get("/:id", async (req,res) =>{
         const { id } = req.params;
         let found = await productos.getById(id);
         if (found){
-            res.send(found._id)
+            res.send(found)
         } else {
             res.send({error:"producto no encontrado"})
         }

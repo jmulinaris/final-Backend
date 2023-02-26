@@ -129,10 +129,9 @@ homeRouter.get("/productos", authMW, (req, res)=> {
     res.render(path.join(process.cwd(), "/public/views/productos.ejs"), { name: name });
 });
 
-homeRouter.get("/productos/:id", authMW, (req, res) => {
+homeRouter.get("/productos/:id", authMW, async (req, res) => {
     res.render(path.join(process.cwd(), "/public/views/productDetail.ejs"));
 });
-
 
 //* Rutas inexistentes
 homeRouter.all("*", (req, res, next) => {
