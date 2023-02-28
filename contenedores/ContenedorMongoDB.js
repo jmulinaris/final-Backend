@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
-import Config from "../config/configDB.js";
 import logger from "../config/log4JS.js"
 
-await mongoose.connect(Config.mongodb.cnxStr);
+const DATABASE = process.env.DATABASE;
+
+await mongoose.connect(`${DATABASE}`);
 
 class ContenedorMongoDB {
     constructor (collection, schema){

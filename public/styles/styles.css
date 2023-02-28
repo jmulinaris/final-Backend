@@ -502,11 +502,9 @@ ul {
 }
 
 .misMensajes{
+    width: 100%;
     margin-top:2%;
-}
-
-.msj{
-    margin-left:15%;
+    margin-left:130px;
     width:100%;
     background-color: rgba(128, 128, 128, 0.271);
 }
@@ -521,4 +519,8 @@ ul {
     cursor:pointer;
     margin-left:2%;
     margin-top:0.5%;
+}
+
+#mensajes{
+    margin-top:5%;
 }

@@ -12,6 +12,8 @@ import orderRouter from "./routes/ordenes.js";
 
 dotenv.config();
 
+const DATABASE = process.env.DATABASE;
+
 const app = express();
 
 app.use(express.json());
@@ -25,7 +27,7 @@ app.set("view engine", "ejs");
 app.use(
     session({
         store: MongoStore.create({
-        mongoUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}.jwfbeyr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+        mongoUrl: `${DATABASE}`,
         }),
         secret: "secreto",
         resave: false,

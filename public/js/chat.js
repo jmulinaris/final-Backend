@@ -20,7 +20,6 @@ formPublicarMensaje.addEventListener("submit", (e) => {
         message: mensaje.value,
         id_user: email.textContent,
     };
-    console.log(message);
     mensaje.value="";
     mensaje.focus();
     socket.emit("newMensaje", message)

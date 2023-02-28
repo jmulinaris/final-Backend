@@ -3,15 +3,16 @@ import logger from "../../config/log4JS.js"
 import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
 
 const products = new Schema({
+    id_prod: { type: String, required:true },
     timestamp: { type: Date, required:true },
-    id: { type: String, required:true },
     name: { type: String, required:true },
     description: { type: String, required:true },
     code: { type: Number, required:true },
     thumbnail: { type: String, required:true },
     price: { type: Number, required:true },
     quantity: { type: Number, default: 1 },
-    stock: { type: Number, required:true }
+    stock: { type: Number, required:true }, 
+    category: { type: String, required: true }
 })
 
 class CarritosDaoMongoDB extends ContenedorMongoDB {
@@ -63,7 +64,7 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
                 await this.collection.findByIdAndUpdate({ _id:id }, { $push: { "products":newProduct }})
             }
         } catch(e) {
-            logger.error(`Error en DAO Carritos al guardar: ${e}`)
+            logger.error(`Error en DAO Carritos al agregar producto: ${e}`)
         }
     }
 

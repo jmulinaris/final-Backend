@@ -40,6 +40,7 @@ const getCart = async (user) => {
 export const createCart = async () => {
     try {
         await fetch(`/api/carrito`, { method: "POST" });
+        location.reload();
     } catch (e) {
         throw new Error(`Error al crear el carrito: ${e}`)
     }
@@ -98,10 +99,22 @@ export const showProducts = async (data) => {
 //* Agregar producto al carrito
 const addProduct = async (product) => {
     try {
+        const producto = {
+            timestamp:product.timestamp,
+            id_prod: product._id,
+            name: product.name,
+            description: product.description,
+            code: product.code,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            quantity: 1,
+            stock: product.stock,
+            category: product.category,
+        }
         const url = `api/carrito/${cartId}/productos`;
         await fetch (url, {
             method: "POST",
-            body: JSON.stringify(product),
+            body: JSON.stringify(producto),
             headers: {
                 "Content-Type": "application/json",
             }

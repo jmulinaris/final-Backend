@@ -4,8 +4,10 @@ dotenv.config();
 
 mongoose.set('strictQuery', true);
 
+const DATABASE = process.env.DATABASE;
+
 export const DBConnect = (cb) =>{
-    mongoose.connect (`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}.jwfbeyr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {useNewUrlParser: true},
+    mongoose.connect (`${DATABASE}`, {useNewUrlParser: true},
         (err)=> {
             if (err) {
                 throw new Error(err)
