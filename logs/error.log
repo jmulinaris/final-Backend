@@ -79,3 +79,9 @@
 [2023-02-26T15:27:30.770] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
 [2023-02-26T15:32:25.182] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value ""63bf05fef3ee9117273e89e2"" (type string) at path "_id" for model "productos"
 [2023-02-26T15:32:57.427] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value ""63bf05fef3ee9117273e89e2"" (type string) at path "_id" for model "productos"
+[2023-02-27T20:43:27.258] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-27T21:06:03.122] [ERROR] default - Error al guardar: ValidationError: products.0.id: Path `id` is required., products.1.id: Path `id` is required., products.2.id: Path `id` is required.
+[2023-02-27T21:08:11.790] [ERROR] default - Error al guardar: ValidationError: products.0.id: Path `id` is required.
+[2023-02-27T21:19:01.226] [ERROR] default - Error al guardar: ValidationError: products.0.id_prod: Path `id_prod` is required.
+[2023-02-27T21:21:53.158] [ERROR] default - Error en DAO Carritos al guardar: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-02-27T21:21:53.751] [ERROR] default - Error en DAO Carritos al guardar: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"

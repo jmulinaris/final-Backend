@@ -58,8 +58,8 @@ router.get("/:id", async (req,res) =>{
 router.post("/", authAdmin, async (req, res) =>{
     const timestamp = new Date();
     try {
-        const {name, price, description, code, thumbnail, stock} = req.body;
-        const id = await productos.save({name, price, description, code, thumbnail, stock, timestamp});
+        const { name, price, description, code, thumbnail, stock } = req.body;
+        const id = await productos.save({ name, price, description, code, thumbnail, stock, timestamp });
         res.send(`Se agregó el producto: ${name} con ID ${id}`)
     } catch (e) {
         res.send({error:true})
@@ -70,9 +70,9 @@ router.post("/", authAdmin, async (req, res) =>{
 router.put("/:id", authAdmin, async (req, res) =>{
     const timestamp = new Date();
     try {
-        const {id} = req.params;
-        const {name, price, description, code, thumbnail, stock} = req.body;
-        const found = await productos.updateById({id, name, price, description, code, thumbnail, stock, timestamp});
+        const { id } = req.params;
+        const { name, price, description, code, thumbnail, stock } = req.body;
+        const found = await productos.updateById({ id, name, price, description, code, thumbnail, stock, timestamp });
         if (found) {
             res.send(`Se reemplazó el producto con ID ${id} por ${name}`)
         } else {

@@ -85,7 +85,7 @@ class CarritosDaoMongoDB extends ContenedorMongoDB {
     }
 
     //* Pasar carrito a finalizado
-    async updateCart (id_user) {
+    async updateCart(id_user) {
         try {
             await this.collection.updateOne({ $and: [{ id_user: id_user}, { finalized:false }]},
             { $set: { finalized: true } })

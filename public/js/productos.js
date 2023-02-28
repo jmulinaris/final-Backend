@@ -37,7 +37,7 @@ const getCart = async (user) => {
 };
 
 //* Crear carrito nuevo
-const createCart = async () => {
+export const createCart = async () => {
     try {
         await fetch(`/api/carrito`, { method: "POST" });
     } catch (e) {

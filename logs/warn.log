@@ -179,3 +179,12 @@
 [2023-02-26T19:09:37.129] [WARN] default - Failed request GET at /favicon.ico
 [2023-02-26T19:09:49.151] [WARN] default - Failed request GET at /favicon.ico
 [2023-02-26T19:11:40.686] [WARN] default - Failed request GET at /favicon.ico
+[2023-02-27T15:27:47.117] [WARN] default - Failed request GET at /api/ordenes
+[2023-02-27T20:43:27.258] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carritos"
+[2023-02-27T21:04:52.148] [WARN] default - Failed request POST at /ordenes63fd42d0e16d8f06465af6a4
+[2023-02-27T21:06:03.122] [ERROR] default - Error al guardar: ValidationError: products.0.id: Path `id` is required., products.1.id: Path `id` is required., products.2.id: Path `id` is required.
+[2023-02-27T21:08:11.790] [ERROR] default - Error al guardar: ValidationError: products.0.id: Path `id` is required.
+[2023-02-27T21:19:01.226] [ERROR] default - Error al guardar: ValidationError: products.0.id_prod: Path `id_prod` is required.
+[2023-02-27T21:21:53.158] [ERROR] default - Error en DAO Carritos al guardar: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-02-27T21:21:53.751] [ERROR] default - Error en DAO Carritos al guardar: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carritos"
+[2023-02-27T21:27:17.533] [WARN] default - Failed request POST at /ordenes/

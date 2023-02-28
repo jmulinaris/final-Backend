@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { CarritosDao } from "../daos/DAOFactory.js";
-//import authMW from "../middlewares/auth.js";
 
 const router = Router();
 

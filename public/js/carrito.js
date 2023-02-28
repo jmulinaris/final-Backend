@@ -26,14 +26,14 @@ const getCart = async (user) => {
         const data = await res.json();
         cartId = data._id;
         userId = user;
-        showCart();
+        showCart(user);
     }  catch (e) {
         throw new Error (`Error al buscar el carrito ${e}`);
     }
 };
 
 //* Mostrar el carrito
-const showCart = async () => {
+const showCart = async (user) => {
     try {
         const res = await fetch (`api/carrito/${cartId}/productos`);
         const products = await res.json();
@@ -58,17 +58,17 @@ const showCart = async () => {
             `
             contenedorCarrito.appendChild(div);
             const btnEliminar = document.getElementById(`eliminar${product._id}`)
+            btnEliminar.addEventListener("click", () => {
+                deleteProduct(product);
+                })
+            })
             const btnFinalizar = document.getElementById("btn-finalizar");
             btnFinalizar.innerHTML = `
             <button class="btn-finalizar">Finalizar compra</button>
             `
-            btnEliminar.addEventListener("click", () => {
-                deleteProduct(product);
-                })
             btnFinalizar.addEventListener("click", () => {
-                console.log("Compra finalizada");
+                finishCart(user);
                 })
-            })
             const calcularTotalOrden = () => {
                 const total = products.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0)
                 return total;
@@ -93,6 +93,23 @@ const deleteProduct = async (product) => {
 };
 
 //* Finalizar compra
-//! Enviar toda la info del carrito para crear una orden -> agregar dirección de entrega, y estado: generada por default
+const finishCart = async (user) => {
+    try {
+        await fetch(`/api/carrito/${user}`, { method: "PUT" });
+        await fetch(`/api/carrito`, { method: "POST" });
+        location.reload();
+        createOrder(user);
+    } catch (e) {
+        throw new Error(`Error al actualizar el carrito a finalizado ${e}`);
+    }
+}
+
+const createOrder = async () => {
+    try {
+        await fetch (`/ordenes/${cartId}`, { method: "POST" })
+    } catch (e) {
+        throw new Error(`Error al crear la orden ${e}`);
+    }
+}
 
 
