@@ -3,3 +3,8 @@
 [2023-03-02T15:50:07.708] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2023-03-02T15:53:39.487] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2023-03-02T15:53:55.588] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2023-03-02T20:18:58.282] [WARN] default - Failed request GET at /variablesEnv
+[2023-03-02T20:20:16.918] [WARN] default - Failed request GET at /favicon.ico
+[2023-03-02T20:20:45.079] [WARN] default - Failed request GET at /carrito/63fe4885741f1385d78221e5
+[2023-03-02T20:20:51.050] [WARN] default - Failed request GET at /carrito/63fe4885741f1385d78221e5/productos
+[2023-03-02T20:21:05.036] [WARN] default - Failed request GET at /favicon.ico

@@ -9,6 +9,7 @@ import mainProductos from "./routes/mainProductos.js"
 import mainCarritos from "./routes/mainCarritos.js"
 import chatRouter from "./routes/chat.js";
 import orderRouter from "./routes/ordenes.js";
+import variablesEnv from "./routes/variables.js";
 
 dotenv.config();
 
@@ -47,7 +48,8 @@ app.use(passport.session());
 app.use("/api/productos", mainProductos);
 app.use("/api/carrito", mainCarritos);
 app.use("/chat", chatRouter);
-app.use("/ordenes", orderRouter)
+app.use("/ordenes", orderRouter);
+app.use("/variables", variablesEnv);
 app.use(homeRouter);
 
 export default app;
