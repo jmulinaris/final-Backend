@@ -33,7 +33,11 @@ router.post("/:category", async (req, res) => {
     const { category } = req.params;
     try {
         const products = await productos.getByCategory(category);
-        res.send(products);
+        if (products){
+            res.send(products);
+        } else {
+            res.send({error:"categoría no encontrado"})
+        }
     } catch (e) {
         res.send(e)
     }
@@ -58,8 +62,8 @@ router.get("/:id", async (req,res) =>{
 router.post("/", authAdmin, async (req, res) =>{
     const timestamp = new Date();
     try {
-        const { name, price, description, code, thumbnail, stock } = req.body;
-        const id = await productos.save({ name, price, description, code, thumbnail, stock, timestamp });
+        const { name, price, description, code, thumbnail, stock, category } = req.body;
+        const id = await productos.save({ name, price, description, code, thumbnail, stock, timestamp, category });
         res.send(`Se agregó el producto: ${name} con ID ${id}`)
     } catch (e) {
         res.send({error:true})

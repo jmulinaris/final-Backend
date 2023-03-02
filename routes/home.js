@@ -6,11 +6,12 @@ import { Users } from "../config/configMongo.js";
 import path from "path";
 import logger from "../config/log4JS.js";
 import authMW from "../middlewares/auth.js";
+import { transporter } from "../config/nodemailer.js";
 
 const homeRouter = new Router();
 
 //* Estrategia de registro
-passport.use("signup", new localStrategy ({
+passport.use("signup", new localStrategy({
     passReqToCallback: true
 }, (req, username, password, done) =>{
     const { name } = req.body;
@@ -21,6 +22,17 @@ passport.use("signup", new localStrategy ({
 
     Users.create({ username, password: hasPassword (password), name, address, phone}, (err, user) => {
             if (err) return done(err);
+
+            const signupMail = async () => {
+                await transporter.sendMail({
+                    from: "Node server",
+                    to: process.env.ADMIN_MAIL,
+                    subject: "Nuevo usuario registrado!",
+                    html: `Nuevo usuario registrado: ${username}`
+                });
+            };
+            signupMail();
+
             return done(null, user);
         })
     })

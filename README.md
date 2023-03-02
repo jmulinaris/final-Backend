@@ -1,24 +1,183 @@
-# Proyecto final BACKEND
-**Julieta Mulinaris**
-***
+# __Proyecto final de Backend__
 
-## Alcance
-***
-* **Primera entrega:** se crean las siguientes rutas:
-1) Productos: listar todos los disponibles, filtrar por ID, incorporar nuevos productos, actualizar por ID y eliminar por ID.
-2) Carrito: crear un carrito, vaciarlo y eliminarlo, listar los productos guardados, incorporar productos por su ID y eliminar por ID.
-- Se crea una variable booleana administrador que según su valor permite o no alcanzar ciertas rutas.
-- Se realiza persistencia de productos y carrito en el filesystem
-- Se crea variable de entorno
+Desarrollo de una API basada en las operaciones de CRUD de un ecommerce. 
 
-* **Segunda entrega:** Se mantienen las rutas de productos y carritos utilizando distintas formas de persistencia de datos:
-  1. Archivos (fs)
-  2. Memoria (array)
-  3. MongoDB Atlas
-  4. Firebase
+En el archivo .env está la variable DATABASE para entorno de producción y desarrrollo. Por defecto está en el de producción (Mongo Atlas). 
 
-* **Tercer entrega:** Se crean formularios de registro y login, ya que el usuario debe autenticarse para acceder. Se crean las vistas de home, productos, carrito y mi cuenta utilizando ejs. El ecommerce queda funcional, enviando confirmación del pedido por WhatsApp al administrador y mensaje de texto al usuario.
-Se utiliza la base de datos Mongo Atlas y se despliega el proyecto en la nube utilizando Railway.
+Para trabajar en desarrollo (Mongo Local) se debe descomentar y dejar comentada la de producción.
+
+Trabajando por defecto sobre el puerto 8080: http://localhost:8080 utilizamos los métodos GET, POST, PUT y DELETE para hacer modificaciones en la base de datos.
+
+***FRONT***
+
+Se crean las vistas con ejs:
+- **Registro:** permite crear un usuario para iniciar sesión. Se debe validar la contraseña para que se habilite el botón de "registrarse".
+- **Inicio de sesión:** debe colocar el mail y contraseña. 
+
+![App Screenshot](https://i.postimg.cc/G2MQXWc4/Screenshot-at-Mar-01-10-17-07.png)
+
+- **Productos:** Página a la que es redirigido cuando inicia sesión, se muestran los productos y permite agregarlos al carrito. 
+
+![App Screenshot](https://i.postimg.cc/8zyqr0vz/Screenshot-at-Mar-01-10-14-30.png)
+
+
+- **Carrito:** Se muestran los productos del carrito con sus respectivos precios, cantidades y suma del total. Al finalizar se crea una orden de compra.
+- **Chat:** Muestra mensajes y permite al usuario enviar mensajes que serán visibles por todos.
+- **Mi Cuenta:** Muestra los datos del usuario (mail, nombre, dirección y celular).
+
+## __API Reference__
+
+### __Productos__
+#### Get All
+
+```http
+  GET /api/productos
+```
+Devuelve todos los productos almacenados en la base de datos.
+
+#### Get By ID
+
+```http
+  GET /api/productos/:id
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del producto|
+
+Devuelve el producto con ese ID y en caso de no existir devuelve que no se encontró.
+
+#### Get By Category
+
+```http
+  POST /api/productos/:category
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `category`      | `string` | **Required**. Categoría del producto|
+
+Devuelve todos los productos que coincidan con la categoría.
+
+#### Save
+
+```http
+  POST /api/productos/
+```
+Recibe los datos del producto y devuelve el ID.
+
+![App Screenshot](https://i.postimg.cc/XNz5Pvnj/Screenshot-at-Feb-28-20-20-25.png)
+
+#### Update By ID
+
+```http
+  PUT /api/productos/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del producto|
+
+Devuelve el nombre y ID del producto actualizado.
+
+![App Screenshot](https://i.postimg.cc/Jhjt4bDx/Screenshot-at-Feb-28-20-41-00.png)
+
+#### Delete By ID
+```http
+  DELETE /api/productos/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del producto|
+
+Se elimina el producto de la base de datos.
+
+![App Screenshot](https://i.postimg.cc/NMSg6FHF/Screenshot-at-Feb-28-20-44-56.png)
+
+
+
+### __Carritos__
+#### Save
+
+```http
+  POST /api/carrito
+```
+Se crea un carrito para el usuario.
+
+#### Delete by ID
+
+```http
+  DELETE /api/carrito/:id
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del carrito|
+
+Se elimina el carrito con el ID informado.
+
+#### Get All
+
+```http
+  GET /api/carrito/:id/productos
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del carrito|
+
+Devuelve los productos incluidos en el carrito.
+
+#### Save products
+
+```http
+  POST /api/carrito/:id/productos
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del carrito|
+
+Se agregan productos al carrito con el ID informado.
+
+#### Delete product by ID
+
+```http
+  DELETE /api/carrito/:id/productos/:id_prod
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. ID del carrito|
+| `id_prod`      | `string` | **Required**. ID del producto|
+
+Se elimina del carrito el producto con el ID informado.
+
+#### Find user´s cart
+
+```http
+  GET /api/carrito/idCarrito/:id_user
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id_user`      | `string` | **Required**. ID del usuario|
+
+Devuelve el carrito del usuario que está sin finalizar.
+
+#### Update cart
+
+```http
+  PUT /api/carrito/:id_user
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id_user`      | `string` | **Required**. ID del usuario|
+
+Actualiza el estado del carrito a "finalizado" para crear la orden de compra.
+
+## __Author__
+
+- [@jmulinaris](https://github.com/jmulinaris)
+
 
 
 ## Tecnologías
