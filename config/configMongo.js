@@ -16,10 +16,3 @@ export const DBConnect = (cb) =>{
         })
 }
 
-export const Users = mongoose.model("users", {
-    name: String,
-    address: String,
-    phone: String,
-    username: String,
-    password: String,
-});

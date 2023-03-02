@@ -1,15 +1,11 @@
-// import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
+import mongoose from "mongoose";
 
-// class UsuariosDaoMongoDB extends ContenedorMongoDB {
-//     constructor() {
-//         super("users",{
-//             name: String,
-//             address: String,
-//             phoneBd: String,
-//             username: String,
-//             password: String,
-//         })
-//     }
-// }
+const Users = mongoose.model("users", {
+    name: String,
+    address: String,
+    phone: String,
+    username: String,
+    password: String,
+});
 
-// export default UsuariosDaoMongoDB;
+export default Users;

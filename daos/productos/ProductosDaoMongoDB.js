@@ -24,7 +24,7 @@ class ProductosDaoMongoDB extends ContenedorMongoDB {
                 return "La categoría no existe"
             }
         } catch (e) {
-            logger.error(`Error en DAO productos al filtrar: ${e}`)
+            logger.error(`Error en DAO productos al filtrar por categoría: ${e}`)
         }
     }
 }

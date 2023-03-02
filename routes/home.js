@@ -2,11 +2,11 @@ import { Router } from "express";
 import passport from "passport";
 import { Strategy as localStrategy } from "passport-local";
 import bcrypt from "bcrypt";
-import { Users } from "../config/configMongo.js";
 import path from "path";
 import logger from "../config/log4JS.js";
 import authMW from "../middlewares/auth.js";
 import { transporter } from "../config/nodemailer.js";
+import Users from "../daos/usuarios/UsuariosDaoMongoDB.js";
 
 const homeRouter = new Router();
 
@@ -14,9 +14,8 @@ const homeRouter = new Router();
 passport.use("signup", new localStrategy({
     passReqToCallback: true
 }, (req, username, password, done) =>{
-    const { name } = req.body;
-    const { address } = req.body;
-    const { phone } = req.body;
+    const { name, address, phone } = req.body;
+
     Users.findOne ({ username }, (err, user)=> {
         if (user) return done(null, false);
 
