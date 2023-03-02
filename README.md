@@ -1,3 +1,4 @@
+
 # __Proyecto final de Backend__
 
 Desarrollo de una API basada en las operaciones de CRUD de un ecommerce. 
@@ -11,7 +12,18 @@ Trabajando por defecto sobre el puerto 8080: http://localhost:8080 utilizamos lo
 ***FRONT***
 
 Se crean las vistas con ejs:
-- **Registro:** permite crear un usuario para iniciar sesión. Se debe validar la contraseña para que se habilite el botón de "registrarse".
+- **Registro:** Permite crear un usuario para iniciar sesión. 
+![App Screenshot](https://i.postimg.cc/28DYBd63/Screenshot-at-Mar-02-16-25-47.png)
+
+Una vez validada la contraseña aparece el botón "registrarse".
+
+![App Screenshot](https://i.postimg.cc/mDP9Cfm3/Screenshot-at-Mar-02-16-29-10.png)
+
+Cuando se crea un nuevo usuario se envía un mail al administrador utilizando Nodemailer y Ethereal.
+
+![App Screenshot](https://i.postimg.cc/3JYRHQ2L/Screenshot-at-Mar-02-16-30-28.png)
+
+
 - **Inicio de sesión:** debe colocar el mail y contraseña. 
 
 ![App Screenshot](https://i.postimg.cc/G2MQXWc4/Screenshot-at-Mar-01-10-17-07.png)
@@ -177,7 +189,6 @@ Actualiza el estado del carrito a "finalizado" para crear la orden de compra.
 ## __Author__
 
 - [@jmulinaris](https://github.com/jmulinaris)
-
 
 
 ## Tecnologías

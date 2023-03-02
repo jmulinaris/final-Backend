@@ -31,7 +31,7 @@ passport.use("signup", new localStrategy({
                     html: `Nuevo usuario registrado: ${username}`
                 });
             };
-            signupMail();
+            //signupMail();
 
             return done(null, user);
         })
