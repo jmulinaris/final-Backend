@@ -8,3 +8,6 @@
 [2023-03-02T20:20:45.079] [WARN] default - Failed request GET at /carrito/63fe4885741f1385d78221e5
 [2023-03-02T20:20:51.050] [WARN] default - Failed request GET at /carrito/63fe4885741f1385d78221e5/productos
 [2023-03-02T20:21:05.036] [WARN] default - Failed request GET at /favicon.ico
+[2023-03-03T14:49:54.764] [WARN] default - Failed request GET at /api/carrito/63ff4a773d50a7682dc0923a
+[2023-03-03T15:57:08.917] [WARN] default - Failed request DELETE at /api/carrito/640242521a85b8e1015e7a73/640242d11a85b8e1015e7a95
+[2023-03-03T15:57:09.382] [WARN] default - Failed request GET at /api/styles/styles.css

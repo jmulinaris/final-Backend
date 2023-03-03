@@ -18,6 +18,7 @@ const products = new Schema({
 class CarritosDaoMongoDB extends ContenedorMongoDB {
     constructor(){
         super ("carritos", {
+            id: { type: String },
             timestamp: { type: Date, required:true },
             id_user: { type: String, required: true },
             address: { type: String, required: true },

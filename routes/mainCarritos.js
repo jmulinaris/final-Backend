@@ -13,9 +13,9 @@ router.post ("/", async (req,res) =>{
         const products = [];
         const timestamp = new Date();
         const id = await carrito.save({ timestamp, products, id_user, address });
-        res.send(id)
+        res.status(200).json(id)
     } catch (e){
-        res.send({ error: true })
+        res.status(404).json({ error: `${e}` })
     }
 })
 

@@ -6,7 +6,7 @@ import path from "path";
 import logger from "../config/log4JS.js";
 import authMW from "../middlewares/auth.js";
 import { transporter } from "../config/nodemailer.js";
-import Users from "../daos/usuarios/UsuariosDaoMongoDB.js";
+import Users from "../model/usuarios/users.js";
 
 const homeRouter = new Router();
 
@@ -140,9 +140,6 @@ homeRouter.get("/productos", authMW, (req, res)=> {
     res.render(path.join(process.cwd(), "/public/views/productos.ejs"), { name: name });
 });
 
-homeRouter.get("/productos/:id", authMW, async (req, res) => {
-    res.render(path.join(process.cwd(), "/public/views/productDetail.ejs"));
-});
 
 //* Rutas inexistentes
 homeRouter.all("*", (req, res, next) => {

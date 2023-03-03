@@ -1,5 +1,3 @@
-//import showDetail from "./productDetail.js";
-
 let cartId;
 
 const contenedorProductos = document.getElementById("productos");
@@ -63,7 +61,7 @@ export const showProducts = async (data) => {
         const div = document.createElement("div");
         div.classList.add("card");
         div.innerHTML += `
-            <a href="/productos/${product._id}"><img id="image${product._id}" src=${product.thumbnail}></a>
+            <img id="image${product._id}" src=${product.thumbnail}>
             <h5 class="name">${product.name}</h5>
             <p class="description">${product.description}</p>
             <p>Stock: ${product.stock}</p>
@@ -75,26 +73,8 @@ export const showProducts = async (data) => {
         boton.addEventListener("click", () => {
             addProduct(product);
         });
-        //! Ver detalle del producto
-        const img = document.getElementById(`image${product._id}`)
-        img.addEventListener("click", () => {
-            const id = product._id;
-            console.log(id)
-            //getProdById(id);
-        })
     });
 };
-
-//* Mostrar el detalle de cada producto
-// const getProdById = async (id) => {
-//     try {
-//         const res = await fetch(`/api/productos/${id}`);
-//         const data = await res.json();
-//         showDetail(JSON.stringify(data));
-//     } catch (e) {
-//         throw new Error(`Error al buscar por ID: ${e}`)
-//     }
-// };
 
 //* Agregar producto al carrito
 const addProduct = async (product) => {
@@ -153,11 +133,6 @@ const showFilterProducts = async (data) => {
         boton.addEventListener("click", () => {
             addProduct(product);
         });
-        //! Ver detalle del producto
-        const img = document.getElementById(`image${product._id}`)
-        img.addEventListener("click", () => {
-            //getProdById(product);
-        })
     });
 };
 
