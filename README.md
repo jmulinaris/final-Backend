@@ -330,12 +330,16 @@ Teconologías utilizadas en el proyecto:
 * [mongoose]: Version 6.7.0
 * [connect-mongo]: Version 4.6.0
 * [express-session]: Version 1.17.3
+* [bcrypt]: Version 5.1.0
 * [ejs]: Version 3.1.8
 * [log4js]: Version 6.7.1
 * [mongodb]: Version 4.11.0
+* [nodemon]: Version 2.0.20
+* [minimist]: Version 1.2.7
 * [passport]: Version 0.6.0
 * [passport-local]: Version 1.0.0
 * [nodemailer]: Version 6.9.0
+* [socket.io]: Version 4.6.1
 
 
 

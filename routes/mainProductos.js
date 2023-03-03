@@ -24,7 +24,7 @@ router.get("/", async (req, res) =>{
         const products = await productos.getAll();
         res.send(products)
     } catch (e){
-        res.send(e)
+        res.status(404).json({ error: `Error al listar los productos: ${e}` })
     }
 });
 
@@ -36,10 +36,10 @@ router.post("/:category", async (req, res) => {
         if (products){
             res.send(products);
         } else {
-            res.send({error:"categoría no encontrado"})
+            res.status(404).json({ error: "categoría no encontrada" })
         }
     } catch (e) {
-        res.send(e)
+        res.status(404).json({ error: `Error al listar los productos por categoría: ${e}` })
     }
 })
 
@@ -51,10 +51,10 @@ router.get("/:id", async (req,res) =>{
         if (found){
             res.send(found)
         } else {
-            res.send({error:"producto no encontrado"})
+            res.status(404).json({ error:"producto no encontrado" })
         }
     } catch (e){
-        res.send({error: "producto no encontrado"})
+        res.status(404).json({ error: `Error al buscar producto: ${e}` })
     }
 })
 
@@ -66,7 +66,7 @@ router.post("/", authAdmin, async (req, res) =>{
         const id = await productos.save({ name, price, description, code, thumbnail, stock, timestamp, category });
         res.send(`Se agregó el producto: ${name} con ID ${id}`)
     } catch (e) {
-        res.send({error:true})
+        res.status(404).json({ error: `Error al guardar producto: ${e}` })
     }
 })
 
@@ -80,10 +80,10 @@ router.put("/:id", authAdmin, async (req, res) =>{
         if (found) {
             res.send(`Se reemplazó el producto con ID ${id} por ${name}`)
         } else {
-            res.send({error: "producto no encontrado"})
+            res.status(404).json({ error: "Producto no encontrado" })
         }
     } catch (e){
-        res.send({error:"producto no encontrado"})
+        res.status(404).json({ error: "Producto no encontrado" })
     }
 })
 
@@ -95,10 +95,10 @@ router.delete("/:id", authAdmin, async (req, res) =>{
         if (found) {
             res.send(`Se eliminó el producto con ID ${id}`)
         } else {
-            res.send({error: "producto no encontrado"})
+            res.status(404).json({ error: "Producto no encontrado" })
         }
     } catch (e){
-        res.send({error:true})
+        res.status(404).json({ error: `Error al eliminar producto: ${e}` })
     }
 })
 

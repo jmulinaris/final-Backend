@@ -13,9 +13,9 @@ router.post ("/", async (req,res) =>{
         const products = [];
         const timestamp = new Date();
         const id = await carrito.save({ timestamp, products, id_user, address });
-        res.status(200).json(id)
+        res.send(id)
     } catch (e){
-        res.status(404).json({ error: `${e}` })
+        res.status(404).json({ error: `Error al crear el carrito: ${e}` })
     }
 })
 
@@ -25,12 +25,12 @@ router.delete ("/:id", async (req, res) =>{
         const { id } = req.params;
         let found = await carrito.deleteById(id)
         if (found) {
-            res.send("Carrito eliminado")
+            res.status(200).json("Carrito eliminado");
         } else {
-            res.send({error:"Carrito no encontrado"})
+            res.status(404)({ error: "Carrito no encontrado" })
         }
     } catch (e){
-        res.send({ error:true })
+        res.status(404).json({ error: `Error al eliminar el carrito: ${e}` })
     }
 })
 
@@ -43,10 +43,10 @@ router.get("/:id/productos", async (req, res) => {
             const { products } = found;
             res.send(products);
         } else {
-            res.send({ error: "Carrito no encontrado" });
+            res.status(404).json({ error: "Carrito no encontrado" });
         }
     } catch (e){
-        res.send({ error: true });
+        res.status(404).json({ error: `Error al listar productos del carrito: ${e}` })
     }
 });
 
@@ -81,7 +81,7 @@ router.post("/:id/productos", async (req, res) => {
         );
         return res.send("Producto Cargado");
     } catch (e) {
-        res.send({ error: true });
+        res.status(404).json({ error: `Error al agregar producto al carrito: ${e}` })
     }
 });
 
@@ -90,9 +90,9 @@ router.delete("/:id/productos/:id_prod", async (req, res) =>{
     try {
         const { id, id_prod } = req.params;
         await carrito.deleteProdById(id, id_prod);
-        res.send("Producto Eliminado");
+        res.status(200).json("Producto eliminado");
     } catch (e) {
-        res.send({ error: true });
+        res.status(404).json({ error: `Error al eliminar producto del carrito: ${e}` })
     }
 });
 
@@ -107,7 +107,7 @@ router.get("/idCarrito/:id_user", async (req,res) => {
             res.send({ _id: null });
         }
     } catch (e) {
-        res.send({ error: true });
+        res.status(404).json({ error: `Error al buscar el carrito del usuario: ${e}` })
     }
 });
 
@@ -116,9 +116,9 @@ router.put("/:id_user", async (req, res) => {
     try {
         const { id_user } = req.params;
         await carrito.updateCart(id_user);
-        res.send("Se actualizó el carrito a finalizado")
+        res.status(200).json("Se actualizó el carrito a finalizado")
     } catch (e) {
-        res.send({ error: true });
+        res.status(404).json({ error: `Error al actualizar el carrito: ${e}` })
     }
 })
 

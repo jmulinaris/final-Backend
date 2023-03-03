@@ -18,7 +18,7 @@ chatRouter.get("/:email", authMW, async (req, res) => {
         const find = await MensajesDao.getByUser(email);
         res.send(find);
     } catch (e) {
-        res.send({ erorr: true })
+        res.status(404).json({ error: "Error al filtrar los mensajes del usuario" })
     }
 });
 

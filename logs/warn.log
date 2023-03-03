@@ -1,13 +1,12 @@
-[2023-03-02T15:26:53.228] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-02T15:41:38.011] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-02T15:50:07.708] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-02T15:53:39.487] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-02T15:53:55.588] [WARN] default - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-02T20:18:58.282] [WARN] default - Failed request GET at /variablesEnv
-[2023-03-02T20:20:16.918] [WARN] default - Failed request GET at /favicon.ico
-[2023-03-02T20:20:45.079] [WARN] default - Failed request GET at /carrito/63fe4885741f1385d78221e5
-[2023-03-02T20:20:51.050] [WARN] default - Failed request GET at /carrito/63fe4885741f1385d78221e5/productos
-[2023-03-02T20:21:05.036] [WARN] default - Failed request GET at /favicon.ico
-[2023-03-03T14:49:54.764] [WARN] default - Failed request GET at /api/carrito/63ff4a773d50a7682dc0923a
-[2023-03-03T15:57:08.917] [WARN] default - Failed request DELETE at /api/carrito/640242521a85b8e1015e7a73/640242d11a85b8e1015e7a95
-[2023-03-03T15:57:09.382] [WARN] default - Failed request GET at /api/styles/styles.css
+
+[2023-03-03T17:01:48.011] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "63fe45741f1385d78221e5" (type string) at path "_id" for model "carritos"
+[2023-03-03T17:02:11.521] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "63fe45741f1385d78221e5" (type string) at path "_id" for model "carritos"
+[2023-03-03T17:03:19.011] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "63fe45741f1385d78221e5" (type string) at path "_id" for model "carritos"
+[2023-03-03T17:06:23.915] [ERROR] default - Error en DAO Carritos al agregar producto: TypeError: Cannot destructure property 'products' of 'cart' as it is null.
+[2023-03-03T17:22:35.092] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "pizzas" (type string) at path "_id" for model "productos"
+[2023-03-03T17:23:02.850] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "63b5fef3ee9117273e89e2" (type string) at path "_id" for model "productos"
+[2023-03-03T17:24:28.073] [ERROR] default - Error al guardar: ValidationError: category: Path `category` is required.
+[2023-03-03T17:24:58.331] [ERROR] default - Error al guardar: ValidationError: category: Path `category` is required.
+[2023-03-03T17:27:19.715] [ERROR] default - Error al guardar: ValidationError: category: Path `category` is required.
+[2023-03-03T17:27:33.449] [ERROR] default - Error al guardar: ValidationError: category: Path `category` is required.
+[2023-03-03T17:29:48.262] [ERROR] default - Error al listar por ID: CastError: Cast to ObjectId failed for value "6458513fd2e5a70ac34d66" (type string) at path "_id" for model "productos"

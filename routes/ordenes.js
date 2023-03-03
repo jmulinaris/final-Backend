@@ -44,7 +44,7 @@ orderRouter.post("/:id", async (req, res)=> {
 
         res.send(orderId)
     } catch (e) {
-        res.send({ error: true })
+        res.status(404).json({ error: `Error al crear la orden: ${e}` })
     }
 });
 
