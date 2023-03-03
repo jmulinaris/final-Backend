@@ -4,7 +4,7 @@ import logger from "../../config/log4JS.js"
 class MensajesDaoMongoDB extends ContenedorMongoDB {
     constructor () {
         super ("mensajes", {
-            timestamp: {type: Date, required: true},
+            timestamp: {type: String, required: true},
             id_user: {type: String, required: true},
             type: {type: String, required: true, default: "usuario"},
             message: {type: String, required: true}
