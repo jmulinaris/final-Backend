@@ -260,7 +260,7 @@ Cuando se registra un nuevo usuario se crea un carrito vacío y se envía un mai
 
 - **Productos:** Página a la que es redirigido cuando inicia sesión, se muestran los productos y permite agregarlos al carrito. 
 
-![App Screenshot](https://i.postimg.cc/RVffLkxv/Screenshot-at-Mar-03-14-02-42.png)
+![App Screenshot](https://i.postimg.cc/s21sHbKH/Screenshot-at-Mar-03-17-42-34.png)
 
 
 - **Carrito:** Se muestran los productos del carrito con sus respectivos precios, cantidades y suma del total.
